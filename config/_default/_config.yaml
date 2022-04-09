@@ -1,11 +1,12 @@
+baseurl: 'https://academic-demo.netlify.app/' # Website URL
 theme: "starter-hugo-academic"
 # Configuration of Hugo
 # Guide: https://wowchemy.com/docs/getting-started/
 # Hugo Documentation: https://gohugo.io/getting-started/configuration/#all-configuration-settings
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
-title: Academic # Website name
-baseurl: 'https://academic-demo.netlify.app/' # Website URL
+title: "Felix MIL" # Website name
+author: "Felix MIL"
 copyright: '' # Footer text, e.g. '© {year} Me'
 
 ############################
@@ -57,8 +58,18 @@ taxonomies:
   category: categories
   publication_type: publication_types
   author: authors
-markup:
-  _merge: deep
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.goldmark.renderer]
+    unsafe = true  # Enable user to embed HTML snippets in Markdown content.
+    hardwraps = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 2
+    ordered = false
+  [markup.highlight]
+    # one of: https://xyproto.github.io/splash/docs/
+    style = "github"
 related:
   threshold: 80
   includeNewer: true
