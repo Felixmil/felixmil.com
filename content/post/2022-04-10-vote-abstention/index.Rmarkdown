@@ -1,0 +1,124 @@
+---
+title: Vote abstention
+author: Felix MIL
+date: '2022-04-10'
+slug: vote-abstention
+draft: true
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-04-10T14:32:09+02:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+# Summary
+
+
+# Package
+
+```{r}
+library(readxl)
+library(janitor)
+library(here)
+library(tidyverse)
+
+library(patchwork)
+
+library(raster)
+library(CARTElette)
+```
+
+
+
+# Data
+
+```{r}
+data <- 
+  readxl::read_xlsx(here("content/post/2022-04-10-vote-abstention/10-avril-2022-taux-de-participation-premier-tour-12-h.xlsx"),
+                    range = "B5:D101") %>%
+  janitor::clean_names() %>%
+  rename(dep_id = x1,
+         dep_name = departement,
+         taux = taux_participation_2022_1er_tour_12h)
+
+
+data <-
+  data %>%
+  mutate(dep_id = str_pad(dep_id, 2, pad = "0"))
+
+reg <- getData(name="GADM", country="FRA", level=2)
+
+reg_info <- 
+  reg@data %>% dplyr::select(GID_1, NAME_1, NAME_2)
+```
+
+```{r}
+dep_sf <- charger_carte(nivsupra = "DEP", geometrie_simplifiee = TRUE)
+```
+
+
+
+```{r}
+map_data <-
+  dep_sf %>% 
+  filter(nchar(DEP) < 3) %>%
+  left_join(data,by = c("DEP"="dep_id")) %>%
+  left_join(reg_info, by = c("dep_name" = "NAME_2"))
+```
+
+
+
+```{r}
+p1 <- ggplot(map_data)+
+  geom_sf(aes(fill = taux/100), color = "white", size = 0.2)+
+  coord_sf(datum = NA, expand = FALSE) +
+  scale_fill_distiller(palette = "OrRd", direction = 1,labels = scales::percent)+
+  theme(panel.background = element_blank(),
+        legend.position = "bottom", 
+        legend.title = element_text(vjust=0.75, size = 10),
+        legend.text = element_text(size = 7, vjust = 1.5, hjust = 1, angle = 30)) +
+  labs(fill = "Taux de Participation")
+
+p1
+```
+```{r}
+p2 <- ggplot(map_data %>% filter(GID_1 == "FRA.8_1"))+
+  geom_sf(aes(fill = taux), color = "white", size = 0.2,show.legend = F)+
+  coord_sf(datum = NA, expand = FALSE) +
+  scale_fill_distiller(palette = "OrRd", direction = 1,
+                       limits = c(min(map_data$taux), max(map_data$taux)))+
+  theme(panel.background = element_blank(),
+        legend.position = "bottom", 
+        legend.title = element_text(vjust=0.75)) +
+  labs(fill = "Taux de Participation")
+
+p2
+
+```
+
+
+
+```{r}
+p1 +
+  # scale_x_continuous(expand = expand_scale(2,0))+ 
+  patchwork::inset_element(p2,
+                           on_top = FALSE, align_to = "plot",clip = F,
+                           right = 1.4, left = .9,
+                           bottom = 0.25, top= 0.75) +
+  plot_annotation(title = 'Taux de Participation par Département à 12H00',
+                  subtitle = 'Premier tour des élections présidentielles 2022',
+                  caption = '@felix_mil_',
+                  theme = theme(plot.subtitle = element_text(hjust= 0.5),
+                                plot.title = element_text(hjust = 0.5),
+                                plot.caption = element_text(hjust = 1.4)))
+
+```
+
