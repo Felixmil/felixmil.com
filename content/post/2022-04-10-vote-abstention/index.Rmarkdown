@@ -23,6 +23,7 @@ knitr::opts_chunk$set(
   echo = FALSE, 
   fig.width = 7,
   fig.asp = 1.618,
+  warning = FALSE,
   message = FALSE,
   error = FALSE,
   cache = TRUE
