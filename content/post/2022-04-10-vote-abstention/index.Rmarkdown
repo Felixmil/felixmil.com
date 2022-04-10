@@ -3,8 +3,7 @@ title: Vote abstention
 author: Felix MIL
 date: '2022-04-10'
 slug: vote-abstention
-draft: true
-categories: []
+categories: [dataviz]
 tags: []
 subtitle: ''
 summary: ''
@@ -18,6 +17,17 @@ image:
 projects: []
 ---
 
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+  comment = "#>", 
+  echo = FALSE, 
+  fig.width = 7,
+  fig.asp = 1.618,
+  message = FALSE,
+  error = FALSE,
+  cache = TRUE
+)
+```
 
 # Summary
 
@@ -85,7 +95,7 @@ p1 <- ggplot(map_data)+
         legend.position = "bottom", 
         legend.title = element_text(vjust=0.75, size = 10),
         legend.text = element_text(size = 7, vjust = 1.5, hjust = 1, angle = 30)) +
-  labs(fill = "Taux de Participation")
+  labs(fill = "")
 
 p1
 ```
@@ -106,19 +116,24 @@ p2
 
 
 
-```{r}
+```{r, fig.asp=1.618}
 p1 +
-  # scale_x_continuous(expand = expand_scale(2,0))+ 
   patchwork::inset_element(p2,
-                           on_top = FALSE, align_to = "plot",clip = F,
-                           right = 1.4, left = .9,
-                           bottom = 0.25, top= 0.75) +
+                           on_top = FALSE, align_to = "plot",clip = T,
+                           right = 1, left = .75,
+                           bottom = 0.85, top= 1) +
   plot_annotation(title = 'Taux de Participation par Département à 12H00',
                   subtitle = 'Premier tour des élections présidentielles 2022',
                   caption = '@felix_mil_',
                   theme = theme(plot.subtitle = element_text(hjust= 0.5),
                                 plot.title = element_text(hjust = 0.5),
-                                plot.caption = element_text(hjust = 1.4)))
+                                plot.caption = element_text(hjust = 1),
+                                )
+                  ) +
+  theme(plot.margin = margin(t = 0,  # Top margin
+                                                     r = 0,  # Right margin
+                                                     b = 0,  # Bottom margin
+                                                     l = 0))
 
 ```
 
