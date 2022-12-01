@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "First day of the advent of code using R\n\n\n\n\n\n\nDec 1, 2022\n\n\n3 min\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "Since this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/01/Calorie-Counting.html",
+    "href": "posts/Advent of Code 2022/01/Calorie-Counting.html",
+    "title": "Advent of Code - Day 1: Calorie Counting",
+    "section": "",
+    "text": "— Day 1: Calorie Counting —\nSanta’s reindeer typically eat regular reindeer food, but they need a lot of magical energy to deliver presents on Christmas. For that, their favorite snack is a special type of star fruit that only grows deep in the jungle. The Elves have brought you on their annual expedition to the grove where the fruit grows.\nTo supply enough magical energy, the expedition needs to retrieve a minimum of fifty stars by December 25th. Although the Elves assure you that the grove has plenty of fruit, you decide to grab any fruit you see along the way, just in case.\nCollect stars by solving puzzles. Two puzzles will be made available on each day in the Advent calendar; the second puzzle is unlocked when you complete the first. Each puzzle grants one star. Good luck!\nThe jungle must be too overgrown and difficult to navigate in vehicles or access from the air; the Elves’ expedition traditionally goes on foot. As your boats approach land, the Elves begin taking inventory of their supplies. One important consideration is food - in particular, the number of Calories each Elf is carrying (your puzzle input).\nThe Elves take turns writing down the number of Calories contained by the various meals, snacks, rations, etc. that they’ve brought with them, one item per line. Each Elf separates their own inventory from the previous Elf’s inventory (if any) by a blank line.\nFor example, suppose the Elves finish writing their items’ Calories and end up with the following list:\n1000 \n2000 \n3000\n\n4000\n\n5000 \n6000\n\n7000 \n8000 \n9000\n\n10000 \nThis list represents the Calories of the food carried by five Elves:\nThe first Elf is carrying food with 1000, 2000, and 3000 Calories, a total of 6000 Calories. The second Elf is carrying one food item with 4000 Calories. The third Elf is carrying food with 5000 and 6000 Calories, a total of 11000 Calories. The fourth Elf is carrying food with 7000, 8000, and 9000 Calories, a total of 24000 Calories. The fifth Elf is carrying one food item with 10000 Calories. In case the Elves get hungry and need extra snacks, they need to know which Elf to ask: they’d like to know how many Calories are being carried by the Elf carrying the most Calories. In the example above, this is 24000 (carried by the fourth Elf).\nFind the Elf carrying the most Calories. How many total Calories is that Elf carrying?\n\n\n\n\n\ninput <- readLines(\"input.txt\")\n\nhead(input, 10)\n\n [1] \"10062\" \"15651\" \"1271\"  \"14355\" \"7220\"  \"\"      \"4878\"  \"1754\"  \"8466\" \n[10] \"4741\" \n\n\n\n\n\n\nlibrary(tibble)\nlibrary(dplyr)\n\n\n\n\n\n# init variables\nelf_id <- 1\ncalories <- 0\nresult_df <- tibble()\n\nfor (line in input) {\n  if (line == \"\") { # if empty line, then it is a new elf*\n    # previous elf is saved\n    result_df <- rbind(result_df, \n                       tibble(elf_id = elf_id, \n                     total_calories = calories))\n    # elf_id is increase since we move to next elf\n    elf_id <- elf_id + 1\n    # calories counter is reset\n    calories <- 0\n  } else { # Le line is not empty so it's just more calories brough by this elf\n    calories <- calories + as.numeric(line)\n  }\n}\n\n\n\n\n\narrange(result_df, desc(total_calories))\n\n\n\n  \n\n\n\n\n\n\nThe elf carrying the most calories is the 148th whom carries 70613 calories."
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/01/Calorie-Counting.html#challenge-1",
+    "href": "posts/Advent of Code 2022/01/Calorie-Counting.html#challenge-1",
+    "title": "Advent of Code - Day 1: Calorie Counting",
+    "section": "Challenge",
+    "text": "Challenge\n\n— Part Two — By the time you calculate the answer to the Elves’ question, they’ve already realized that the Elf carrying the most Calories of food might eventually run out of snacks.\nTo avoid this unacceptable situation, the Elves would instead like to know the total Calories carried by the top three Elves carrying the most Calories. That way, even if one of those Elves runs out of snacks, they still have two backups.\nIn the example above, the top three Elves are the fourth Elf (with 24000 Calories), then the third Elf (with 11000 Calories), then the fifth Elf (with 10000 Calories). The sum of the Calories carried by these three elves is 45000.\nFind the top three Elves carrying the most Calories. How many Calories are those Elves carrying in total?"
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/01/Calorie-Counting.html#result-1",
+    "href": "posts/Advent of Code 2022/01/Calorie-Counting.html#result-1",
+    "title": "Advent of Code - Day 1: Calorie Counting",
+    "section": "Result",
+    "text": "Result\n\ntop_3 <-\n  result_df %>%\n  top_n(3, total_calories)\n\ntop_3\n\n\n\n  \n\n\n\nThe Three elves carrying the most calories are the 66, 148, 160th with a total of 205 805 calories."
+  }
+]
