@@ -1,18 +1,18 @@
 ---
 title: "About"
-image: profile.jpg
+# image: profile.jpg
 about:
   template: jolla
   links:
     - icon: twitter
       text: Twitter
-      href: https://twitter.com
+      href: https://twitter.com/felix_mil_
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
+      href: https://www.linkedin.com/in/felix-mil/
     - icon: github
       text: Github
-      href: https://github.com
+      href: https://github.com/felixmil
 
 ---
 
