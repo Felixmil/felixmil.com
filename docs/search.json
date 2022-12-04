@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Welcome",
     "section": "",
-    "text": "Third day of the advent of code using R\n\n\n\n\n\n\nDec 3, 2022\n\n\n0 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSecond day of the advent of code using R\n\n\n\n\n\n\nDec 2, 2022\n\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFirst day of the advent of code using R\n\n\n\n\n\n\nDec 1, 2022\n\n\n3 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Fourth day of the advent of code using R\n\n\n\n\n\n\nDec 4, 2022\n\n\n0 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThird day of the advent of code using R\n\n\n\n\n\n\nDec 3, 2022\n\n\n0 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSecond day of the advent of code using R\n\n\n\n\n\n\nDec 2, 2022\n\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFirst day of the advent of code using R\n\n\n\n\n\n\nDec 1, 2022\n\n\n3 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/Advent of Code 2022/01/Calorie-Counting.html",
@@ -68,5 +68,12 @@
     "title": "Advent of Code - Day 3: Rucksack Reorganization",
     "section": "",
     "text": "input <- readLines(\"input.txt\")\n\nhead(input, 10)\n\n [1] \"zBBtHnnHtwwHplmlRlzPLCpp\"                        \n [2] \"vvhJccJFGFcNsdNNJbhJsJQplQMRLQMlfdfTPCLfQQCT\"    \n [3] \"GPhjcjhZDjWtnSVH\"                                \n [4] \"BNhHVhrGNVTbDHdDJdJRPJdSQQSJwPjR\"                \n [5] \"lvtsfbsqzwSnJcvjSm\"                              \n [6] \"MftttFLftZMLgtgMbltMqZzbDNrTpVGhNWrDTrpTGNpZGZhD\"\n [7] \"VSSHcTgTtTdtllZlzmmbljTn\"                        \n [8] \"RqMqsFfQLLFLQFMMfRLPZLvPpCfWrbpmCbjCnfjlWmnrmmnm\"\n [9] \"hqRDqPDRsqNHwtHSNBZtJd\"                          \n[10] \"tNFDpDFrtdjfmjjjFmFFdScpZhZScTJgpHccHhMJgS\"      \n\n\n\n\n\n\n\n\n\n\n\n\nfind_common <- function(rucksack){\n  len <- nchar(rucksack)\n  chars <- unlist(strsplit(rucksack, \"\"))\n  first_part <- chars[1:(len/2)]\n  second_part <- chars[(len/2)+1:len]\n  return(intersect(first_part, second_part))\n}\n\nget_priority <- function(item){\n  if(item %in% LETTERS){\n    priority <- 26 + match(item, LETTERS)\n  } else {\n    priority <- match(item, letters)\n  }\n  return(priority)\n}\n\n\nsum_priority <- 0\n\nfor (i in input) {\n  common_item <- find_common(i)\n  priority <- get_priority(common_item)\n  sum_priority <- sum_priority + priority\n}\n\n\n\n\nTotal sum of all priorities is 7597."
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/04/camp-cleanup.html",
+    "href": "posts/Advent of Code 2022/04/camp-cleanup.html",
+    "title": "Advent of Code - Day 4: Camp Cleanup",
+    "section": "",
+    "text": "input <- readLines(\"input.txt\")\n\nhead(input, 10)\n\n [1] \"7-24,8-8\"    \"2-75,37-51\"  \"47-78,20-39\" \"53-91,34-53\" \"13-50,14-50\"\n [6] \"93-93,20-93\" \"74-80,48-81\" \"30-87,27-38\" \"6-93,7-94\"   \"56-98,12-49\"\n\n\n\n\n\n\n# Function to count the number of overlapping pairs\ncount_overlapping_pairs <- function(pairs) {\n  # Initialize a counter variable\n  count <- 0\n\n  # Loop through each pair\n  for (pair in pairs) {\n    # Split the pair into its start and end parts\n    parts <- unlist(strsplit(pair, \",\"))\n    \n    first_elf <- as.numeric(unlist(strsplit(parts[1], \"-\")))\n    second_elf <-  as.numeric(unlist(strsplit(parts[2], \"-\")))\n    \n    first_set <- c(first_elf[1]:first_elf[2])\n    second_set <- c(second_elf[1]:second_elf[2])\n    \n    \n    if (identical(first_set[first_set %in% second_set],first_set) || identical(second_set[second_set %in% first_set],second_set)) {\n      count <- count + 1\n    }\n  }\n\n  # Return the count\n  return(count)\n}\n\n\nresult <- count_overlapping_pairs(input)\n\n\n\n\nThere are a total of 562 overlapping pairs."
   }
 ]
