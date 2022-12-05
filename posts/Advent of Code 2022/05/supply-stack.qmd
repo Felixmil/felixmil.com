@@ -1,0 +1,90 @@
+---
+title: "Advent of Code - Day 5: Supply Stacks"
+subtitle: "Fifth day of the advent of code using R"
+date: 2022-12-05
+categories: "advent of code"
+format: 
+   html:
+     df-print: paged
+editor: 
+  markdown: 
+    wrap: 80
+---
+
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(
+  comment = '',
+  message = F, 
+  warning = F
+)
+```
+
+
+# Part 1
+## Input
+
+
+### Full
+
+```{r}
+input <- readLines("input.txt")
+
+head(input, 10)
+```
+
+## Libraries
+```{r}
+library(tidyverse)
+```
+
+
+## Code
+
+
+```{r}
+
+# Detect where initial state and procedure are separated
+sep <- which(input == "")
+
+# Split initial state of boxes with procedure steps
+boxes <- input[1:(sep-2)]
+procedure <- input[(sep+1):length(input)] %>% 
+  str_extract_all("\\d+") %>% 
+  map(as.integer)
+
+# Count the number of stack to compute the indexes of the relevant character indexes to catch
+stack_number <- max(str_count(string = boxes,"\\w"))
+boxes_location <- seq(1,(stack_number*4 - 1), by = 4)+1
+
+# Reconstruct stacks in a list of vectors
+stacks <- 
+  map(boxes_location, ~ str_sub(boxes, .x, .x)) %>%
+  map(setdiff, c("", " ")) %>%
+  map(rev)
+
+
+# Launch the simulation
+for (step in procedure) {
+    
+  qty <- step[1]
+  from <- step[2]
+  to <- step[3]
+  
+  stacks[[to]] <- c(stacks[[to]], rev(tail(stacks[[from]],qty))) # boxes are 
+  # moved (they are reversed since the top ones need to be move before lower ones)
+  
+  stacks[[from]] <- stacks[[from]][1:(length(stacks[[from]])-qty)] # moved boxes 
+  # are removed from their original stack
+}
+
+
+# We get the top box (last character of stack vector) for each stack
+result <- unlist(map(stacks, tail, 1))
+
+```
+
+
+
+## Result
+
+The crates at the top of each stacks are  **`r  paste(result, collapse = "")`**.
