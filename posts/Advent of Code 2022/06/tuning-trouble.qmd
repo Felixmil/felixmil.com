@@ -1,0 +1,77 @@
+---
+title: "Advent of Code - Day 6: Tuning Trouble"
+subtitle: "Sixth day of the advent of code using R"
+date: 2022-12-05
+categories: "advent of code"
+format: 
+   html:
+     df-print: paged
+editor: 
+  markdown: 
+    wrap: 80
+---
+
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(
+  comment = '',
+  message = F, 
+  warning = F
+)
+```
+
+
+# Part 1
+
+
+## Input
+
+
+```{r}
+input <- readLines("input.txt")
+
+head(input, 10)
+```
+
+
+
+## Code
+
+
+```{r}
+get_marker_index <- function(characters, marker_length) {
+  for (i in seq_along(characters[1:(length(characters)-marker_length)])) {
+    set <- unique(characters[i:(i+marker_length-1)])
+    if (length(set) == marker_length) {
+      return(i+marker_length-1) 
+      break
+    }
+  }
+}
+```
+
+```{r}
+characters <- unlist(strsplit(input, ""))
+
+result <- get_marker_index(characters, marker_length = 4)
+```
+
+
+
+## Result
+
+The number of characters that were processed before first start-of-message marker is **`r  format(result, scientific=FALSE)`**.
+
+
+# Part 2
+
+## Code
+
+```{r}
+characters <- unlist(strsplit(input, ""))
+
+result <- get_marker_index(characters, marker_length = 14)
+```
+
+## Result
+
+The number of characters that were processed before first start-of-message marker is **`r  format(result, scientific=FALSE)`**.
