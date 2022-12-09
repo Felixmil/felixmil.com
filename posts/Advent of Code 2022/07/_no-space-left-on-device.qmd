@@ -1,14 +1,20 @@
 ---
-title: "Advent of Code - Day 6: Tuning Trouble"
-subtitle: "Sixth day of the advent of code using R"
-date: 2022-12-05
+title: "Advent of Code - Day 7: Tuning Trouble"
+subtitle: "Seventh day of the advent of code using R"
+date: 2022-12-07
 categories: "advent of code"
+draft: true
+
 format: 
    html:
      df-print: paged
 editor: 
   markdown: 
     wrap: 80
+    
+
+execute: 
+  error: true
 ---
 
 ```{r, setup, include=FALSE}
@@ -20,7 +26,7 @@ knitr::opts_chunk$set(
 ```
 
 
-# Part 1
+# Part
 
 
 ## Input
@@ -141,5 +147,3 @@ reduce(filesystem, get_dir_size)
 
 
 ## Result
-
-The number of characters that were processed before first start-of-message marker is **`r  format(result, scientific=FALSE)`**.
