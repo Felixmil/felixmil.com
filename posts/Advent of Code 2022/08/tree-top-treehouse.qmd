@@ -1,7 +1,7 @@
 ---
-title: "Advent of Code - Day 9: Rope Bridge"
-subtitle: "9th day of the advent of code using R"
-date: 2022-12-09
+title: "Advent of Code - Day 8: Treetop Tree House"
+subtitle: "8th day of the advent of code using R"
+date: 2022-12-08
 categories: "advent of code"
 format: 
    html:
