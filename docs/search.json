@@ -1,17 +1,24 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "posts/Advent of Code 2022/06/tuning-trouble.html",
+    "href": "posts/Advent of Code 2022/06/tuning-trouble.html",
+    "title": "Advent of Code - Day 6: Tuning Trouble",
     "section": "",
-    "text": "About this blog"
+    "text": "input <- readLines(\"input.txt\")\n\nhead(input, 10)\n\n[1] \"qhbhzbzzfrzrbzzcjzjrrvcvrvqvvnggnngcgssswbblplrlflfnnnmmjppgddqndnrnlnccpfcfjcjvjdjqqqmhhmwhwmmsnsvsjvjnvjnvjvsjsmjsjccwcqwcqwqjqwjwmwbmmbzbsbvsslbsbbbntnvvphpqqvrrtbrtrfftppbggpzzfhfcfsfmssffmbmzzmqzzblzzzmwwnggjwgjwgjgpgmmjvvmcvmmcfchfhllwmlljqqldqdqttsgsvscsmsnsmstmtssvgsgddwdffbppwfpplhlchhhdvvdrrmttmptmmmjsmshmmmgqmgggzjgzzmwzwcwhchqqfpfvvbqvbqbrblrrmtmstmmjvmmdnmmzczdzpztppjhjjwzjjjtdjjpljpjcppjllsffhbffbhhgttqjqzzfzbzcbzcbcrrjjrwrgwwbcbpcccctrtqtfqqfjjpgpdgdfgfrggpjjljglgclcqcqmcqmmgjjllpmphpjjgfjjqrrbppwmpmccftctjtjgjtgggzffcggwzzzdjdzzlgzgjzzvqvppczzjnjvvfhhtwtttdwtdtvddpzpnpcnppmvmcmcsmstthctchcggtssdttvztvvldlfftqqbzzjttvzztppscctzccgmcmvmhhchcscbbshbssgwwthwhmwwcgwcwrrvrzvrzzzvhvdvmmprrdmrmfmrmbmjbbmqbmbqqhbbszsjjlqjljtjstshhgphpffdhhtggtgbbqcqgqccfffcpcbpbfppwqpqcclbbwdwsscpchhfpfmpfmflfnnmggwrrznnghgvhhghrrhwrrcschcscqcmcfcvvgzztjtqjjshspsqsmmjnnmttsshvhmmqfqzztbzttvhttmwttnqnfncfcpfflmllmtlmmphmhlmmltmtztcczhzbbfmmlglnnfpppqplljwjfwfdwdzwddszddqzqnzzzwwlzzqvvjlllrwlrrmpmrmbmpplpspqsqmqcmcjjshsvstvvwtvthvvrfvvqmmjpmjmrjmmlvvnnrjjrcrwrhwwqzzvgvngncgcqqcffmfzfssbnbfblbggwhggmtgtvvqhhpttbcbczcjjbqbhqbhqbbccbhbqhbbmppdlpdllbvvdpvdvwvsvppllgblbttmcmtccbsswmswwwzfwfhhtfhthctchcfhhhfjjvhjhgjjjcwjwggrtgrttcqcwcswccfdffvpvtptprrvjjqvjjghggshhwmmcscmsmhmvmppprfrwwrhhvghhtnhncctbbbwzzbgzgdzgdzdpdvpvbbwgbwwrqwrqwqbqvvclccfcfzfdfrrthrrqcqddplpqlppbbfrfmmrmnnwhhgddmwwrzrsswpwhwdwhhsmhshqsqllbvlbllwbwbpwwfwmwsmspsvsdsbscctpctppvvpggtjjdmdqqgqbgglccvzcvcnczcgzgmzznpzzpcpnpvpcvvffrttqrqttflfbfjfnnwnlwlhwwqzqnqfftstdsttglldwwgqwwvqqzczfzdffbfsfssfwswdwnwdnnbcncwctttvsvjsvsrvvbtvvzhhvjvtvtjtsjjvhjjwpjjnzzpczzppgcpgcpgcgsgvsgvsscrcpcpspllzvzddpssssdpsddhffllzmzhzfhhdvhhvbvwwpwqpwqpwwmvwmvwvgvmvpvmpmrmzrrblltjtggvnggvppthhzjhzhffrvrhvrhrlrslsflfhhtvhvmmhppjgpjpcccmqcqvqhvvfssrtmnwjjslwhjgpvrwspjlwdwrmvfgwmplrmjrllndrjzvjfbwvzpjpfqrnjspwcpsgcvdlmfdfrvwdcvmbrnzncgnqlcvgqtpsbbpvprncdsgvpqbpcnffwqmmfsvnzspchhrlnzbhcdfdgtsllmqfbrcqwbmmzrfvsghjpmrndsdbqvtprmblnbvbnpvhtphbpjwdssvwgdzwztbpzdcsqzldjzrgcwhhspblrtncvntppcgttlflflnntcnzpbpgsclcjvbjhldcdzwjjhnfwzjmgcwtljhvbncwqnjhbrhfqcmnsdvntsbgnpqttzvbhzzpdznrhjpnsqzsztsblstbghlpwbmqjctlnqnttwshfvmjdhgbgjdhbzrfjqndrrhlqcmplczjtwpstlsmwwzqzmgvhsvjgbrtfwmvwlbhpccbqvmfmlgmbmbmldbcwmmhpnnbnffbnqgwhclgpzgbpjqvzmqhhhpltnwrdfrrnmlfrzflpnjztlnfzzzgmncprtblpsvrqgrnzbzfzhzhjjjdrnpvjpnwmlmlgvvtqmdvpnhvcrdmthcnnnvhnzmvgrtdvcthgjtvcgmtpsvmfztrflrrzbmcfhftwwcnjfpjtsnzjccmvdnrrwvbfjgcjttdvzncqhlqqphwphclztbhlqcfmnhcjmsscplnrsjqpdzrrzbthbcdnrzgdmstpgqqsvzclvmzjjdfqhhhttwcjtmwcbltghmslqvltqbjqqjpjvgntvnlttjcnhltflglgsmjwjjfldpfgjgrhttbwfhpsdbsmsfmfbtjlnhvjfqjrqhwdrcwpfthdgqzjjjfcvgdffrhvvwzfghpszmjjgscjvjnlgnbfbgfrbbzbzbnzngthrddfmsgsqqdddpfqwlchfblrvjdcgnzfzwmmnmvnzmpfmhbbhsbfdfclzcnbrlgpbsvfgfpshrpvpgccmmghphrcvzwnlqjcfwrtwvlvcsdldldvnpwgrcsqlftllcctnvcwbdswvqlzwzzbpmvvctcrgnjfstbqvnzczrjlljfqzrwtfwmlvvdfbfntrrljtbrtbdfsqpnppfbppbsmghbnqddhrvwmgzttnqjrqlfrdhqjndmnjlbctgclltmznmrqtfjsjwnztdvhnhlfwpnnqlhhsrfzglsnrdnfvrqssbtlthzfnjdvrcgzsbnpdgqhhrlwspfqfqpvzdfwgrlhwplzvbzprsqzcwvhggvzpgjztnvwvddsflgsvqljmmhhdzqsqmthwzvllqwmsnvdpdbjcgdtrsnmwhnzhbhgjssstmhrpssnhnntmrbbbjgmjqtncbdljcgtmbctpgdrnqcnrpssrdtpbsmlzlcztbrggglswnjzqgbsmgbqdzppqrwgtnlrjrvlpnqlcdwhltzzlqdwwrglldzcqrjtjtlgdqrtwzjgtdthsdccsmsrbjjsgdqcwdltvnjwtddsnpnsvzcdbfqnvsjbngqrztmbrnbvhhjzdtqrgldpvjqjpnshbjdsdgbjdjzdmrvzhwmtgcjrfnprstqgfgnwfpcjzhlnwpdbtqbspssqdrzhmmsrqtlwngvbrvgdgztnrlwcnqwvcdmhhdrmpfqbgbjpvzwbsbgcpsnpjplcrjdhflqvsdctclqqnmprngtvbmlmpqrsqdsrzgsmzmsczpsnmfmtfnjvnddjhqbjdvtgftjfvjhgpjqdhlszqjmcbnwrppzwjvmgblspjmfhjdbnmrllnfqlpcbndvqdzhhmmrpsljgdshpnrgnmwfjsdncqcwlctccrqghfdbsqqbnwctcqpvlrqqqvdjwlcnzmvdmcvlwnftjnqqldfwhmdtcpnlgfcdjdrfvmwqdzsjzctmmmrswhlwthttvcsqqscdcsmjgqfjhswlpsfjrppdmbwrthcwszqwwgnjsdqdrswmnzbrvqcwlrlwwvjmrrhsnzprggbzhhdqwvnspsmzzqdtbphzvwrzvqnbntjndrwllzwchczdwvnfjjdwfhdlgncftldzwdtjzjrmnfwwgmqdrltmgrfsjztfcvwjsggtvbnsvthflwfdtljrgqhmfqhmhfffqhtgwtlmwgzsglqnfwnrnvgvbdgqjrqtsmgsmzdpffnnzwlpbqphqmgdzspfrdqlptwmfwlgnqqdhtbbjtfhllrhhdcszjtmrprzhzzlgjqbcnhzcmhzrsnmmrzztffrldthhfvwhgjhwmjfbdvnllfmlpdsldjnpcwlpbwqzdwbgjb\"\n\n\n\n\n\n\nget_marker_index <- function(characters, marker_length) {\n  for (i in seq_along(characters[1:(length(characters)-marker_length)])) {\n    set <- unique(characters[i:(i+marker_length-1)])\n    if (length(set) == marker_length) {\n      return(i+marker_length-1) \n      break\n    }\n  }\n}\n\n\ncharacters <- unlist(strsplit(input, \"\"))\n\nresult <- get_marker_index(characters, marker_length = 4)\n\n\n\n\nThe number of characters that were processed before first start-of-message marker is 1802."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome",
-    "section": "",
-    "text": "Advent of Code - Day 9: Rope Bridge\n\n\n9h day of the advent of code using R\n\n\n\n\n\n\nDec 9, 2022\n\n\n3 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 8: Treetop Tree House\n\n\n8th day of the advent of code using R\n\n\n\n\n\n\nDec 8, 2022\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 6: Tuning Trouble\n\n\nSixth day of the advent of code using R\n\n\n\n\n\n\nDec 5, 2022\n\n\n0 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 6: Tuning Trouble\n\n\nSixth day of the advent of code using R\n\n\n\n\n\n\nDec 5, 2022\n\n\n2 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 5: Supply Stacks\n\n\nFifth day of the advent of code using R\n\n\n\n\n\n\nDec 5, 2022\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 4: Camp Cleanup\n\n\nFourth day of the advent of code using R\n\n\n\n\n\n\nDec 4, 2022\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 3: Rucksack Reorganization\n\n\nThird day of the advent of code using R\n\n\n\n\n\n\nDec 3, 2022\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 2: Rock Paper Scissors\n\n\nSecond day of the advent of code using R\n\n\n\n\n\n\nDec 2, 2022\n\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 1: Calorie Counting\n\n\nFirst day of the advent of code using R\n\n\n\n\n\n\nDec 1, 2022\n\n\n3 min\n\n\n\n\n\n\nNo matching items"
+    "objectID": "posts/Advent of Code 2022/06/tuning-trouble.html#code-1",
+    "href": "posts/Advent of Code 2022/06/tuning-trouble.html#code-1",
+    "title": "Advent of Code - Day 6: Tuning Trouble",
+    "section": "Code",
+    "text": "Code\n\ncharacters <- unlist(strsplit(input, \"\"))\n\nresult <- get_marker_index(characters, marker_length = 14)"
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/06/tuning-trouble.html#result-1",
+    "href": "posts/Advent of Code 2022/06/tuning-trouble.html#result-1",
+    "title": "Advent of Code - Day 6: Tuning Trouble",
+    "section": "Result",
+    "text": "Result\nThe number of characters that were processed before first start-of-message marker is 3551."
   },
   {
     "objectID": "posts/Advent of Code 2022/01/Calorie-Counting.html",
@@ -33,6 +40,13 @@
     "title": "Advent of Code - Day 1: Calorie Counting",
     "section": "Result",
     "text": "Result\n\ntop_3 <-\n  result_df %>%\n  top_n(3, total_calories)\n\ntop_3\n\n\n\n  \n\n\n\nThe Three elves carrying the most calories are the 66, 148, 160th with a total of 205 805 calories."
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/04/camp-cleanup.html",
+    "href": "posts/Advent of Code 2022/04/camp-cleanup.html",
+    "title": "Advent of Code - Day 4: Camp Cleanup",
+    "section": "",
+    "text": "input <- readLines(\"input.txt\")\n\nhead(input, 10)\n\n [1] \"7-24,8-8\"    \"2-75,37-51\"  \"47-78,20-39\" \"53-91,34-53\" \"13-50,14-50\" \"93-93,20-93\" \"74-80,48-81\" \"30-87,27-38\" \"6-93,7-94\"   \"56-98,12-49\"\n\n\n\n\n\n\n# Function to count the number of overlapping pairs\ncount_overlapping_pairs <- function(pairs) {\n  # Initialize a counter variable\n  count <- 0\n\n  # Loop through each pair\n  for (pair in pairs) {\n    # Split the pair into its start and end parts\n    parts <- unlist(strsplit(pair, \",\"))\n    \n    first_elf <- as.numeric(unlist(strsplit(parts[1], \"-\")))\n    second_elf <-  as.numeric(unlist(strsplit(parts[2], \"-\")))\n    \n    first_set <- c(first_elf[1]:first_elf[2])\n    second_set <- c(second_elf[1]:second_elf[2])\n    \n    \n    if (identical(first_set[first_set %in% second_set],first_set) || identical(second_set[second_set %in% first_set],second_set)) {\n      count <- count + 1\n    }\n  }\n\n  # Return the count\n  return(count)\n}\n\n\nresult <- count_overlapping_pairs(input)\n\n\n\n\nThere are a total of 562 fully overlapping pairs."
   },
   {
     "objectID": "posts/Advent of Code 2022/02/rock-paper-scissors.html",
@@ -63,18 +77,18 @@
     "text": "Result\nTotal score obtained with the scenarios is 8295."
   },
   {
-    "objectID": "posts/Advent of Code 2022/03/roucksack-reorganization.html",
-    "href": "posts/Advent of Code 2022/03/roucksack-reorganization.html",
-    "title": "Advent of Code - Day 3: Rucksack Reorganization",
+    "objectID": "posts/Advent of Code 2022/08/tree-top-treehouse.html",
+    "href": "posts/Advent of Code 2022/08/tree-top-treehouse.html",
+    "title": "Advent of Code - Day 8: Treetop Tree House",
     "section": "",
-    "text": "input <- readLines(\"input.txt\")\n\nhead(input, 10)\n\n [1] \"zBBtHnnHtwwHplmlRlzPLCpp\"                         \"vvhJccJFGFcNsdNNJbhJsJQplQMRLQMlfdfTPCLfQQCT\"     \"GPhjcjhZDjWtnSVH\"                                \n [4] \"BNhHVhrGNVTbDHdDJdJRPJdSQQSJwPjR\"                 \"lvtsfbsqzwSnJcvjSm\"                               \"MftttFLftZMLgtgMbltMqZzbDNrTpVGhNWrDTrpTGNpZGZhD\"\n [7] \"VSSHcTgTtTdtllZlzmmbljTn\"                         \"RqMqsFfQLLFLQFMMfRLPZLvPpCfWrbpmCbjCnfjlWmnrmmnm\" \"hqRDqPDRsqNHwtHSNBZtJd\"                          \n[10] \"tNFDpDFrtdjfmjjjFmFFdScpZhZScTJgpHccHhMJgS\"      \n\n\n\n\n\n\n\n\n\n\n\n\nfind_common <- function(rucksack){\n  len <- nchar(rucksack)\n  chars <- unlist(strsplit(rucksack, \"\"))\n  first_part <- chars[1:(len/2)]\n  second_part <- chars[(len/2)+1:len]\n  return(intersect(first_part, second_part))\n}\n\nget_priority <- function(item){\n  if(item %in% LETTERS){\n    priority <- 26 + match(item, LETTERS)\n  } else {\n    priority <- match(item, letters)\n  }\n  return(priority)\n}\n\n\nsum_priority <- 0\n\nfor (i in input) {\n  common_item <- find_common(i)\n  priority <- get_priority(common_item)\n  sum_priority <- sum_priority + priority\n}\n\n\n\n\nTotal sum of all priorities is 7597."
+    "text": "library(readr)\n\n\n\n\ninput <-   as.matrix(read_fwf(\"input.txt\",fwf_widths(widths = rep(1,99))))"
   },
   {
-    "objectID": "posts/Advent of Code 2022/04/camp-cleanup.html",
-    "href": "posts/Advent of Code 2022/04/camp-cleanup.html",
-    "title": "Advent of Code - Day 4: Camp Cleanup",
-    "section": "",
-    "text": "input <- readLines(\"input.txt\")\n\nhead(input, 10)\n\n [1] \"7-24,8-8\"    \"2-75,37-51\"  \"47-78,20-39\" \"53-91,34-53\" \"13-50,14-50\" \"93-93,20-93\" \"74-80,48-81\" \"30-87,27-38\" \"6-93,7-94\"   \"56-98,12-49\"\n\n\n\n\n\n\n# Function to count the number of overlapping pairs\ncount_overlapping_pairs <- function(pairs) {\n  # Initialize a counter variable\n  count <- 0\n\n  # Loop through each pair\n  for (pair in pairs) {\n    # Split the pair into its start and end parts\n    parts <- unlist(strsplit(pair, \",\"))\n    \n    first_elf <- as.numeric(unlist(strsplit(parts[1], \"-\")))\n    second_elf <-  as.numeric(unlist(strsplit(parts[2], \"-\")))\n    \n    first_set <- c(first_elf[1]:first_elf[2])\n    second_set <- c(second_elf[1]:second_elf[2])\n    \n    \n    if (identical(first_set[first_set %in% second_set],first_set) || identical(second_set[second_set %in% first_set],second_set)) {\n      count <- count + 1\n    }\n  }\n\n  # Return the count\n  return(count)\n}\n\n\nresult <- count_overlapping_pairs(input)\n\n\n\n\nThere are a total of 562 fully overlapping pairs."
+    "objectID": "posts/Advent of Code 2022/08/tree-top-treehouse.html#code",
+    "href": "posts/Advent of Code 2022/08/tree-top-treehouse.html#code",
+    "title": "Advent of Code - Day 8: Treetop Tree House",
+    "section": "Code",
+    "text": "Code\n\nis_visible <- function(x){\n  results <- vector(mode = \"logical\", length = length(x))\n  \n  for (i in seq_along(x)) {\n    if(i == 1 || i == length(x)){\n      results[i] <- TRUE\n    } else if (all(x[i] > x[1:i-1]) || all(x[i] > x[(i+1):length(x)])) {\n      results[i] <- TRUE\n    } else {\n      results[i] <- FALSE\n    }\n  }\n  results\n  \n}\n\nsum(t(apply(input, 1, is_visible)) | apply(input, 2, is_visible))\n\n[1] 1840"
   },
   {
     "objectID": "posts/Advent of Code 2022/05/supply-stack.html",
@@ -82,27 +96,6 @@
     "title": "Advent of Code - Day 5: Supply Stacks",
     "section": "",
     "text": "input <- readLines(\"input.txt\")\n\nhead(input, 10)\n\n [1] \"        [M]     [B]             [N]\" \"[T]     [H]     [V] [Q]         [H]\" \"[Q]     [N]     [H] [W] [T]     [Q]\" \"[V]     [P] [F] [Q] [P] [C]     [R]\"\n [5] \"[C]     [D] [T] [N] [N] [L] [S] [J]\" \"[D] [V] [W] [R] [M] [G] [R] [N] [D]\" \"[S] [F] [Q] [Q] [F] [F] [F] [Z] [S]\" \"[N] [M] [F] [D] [R] [C] [W] [T] [M]\"\n [9] \" 1   2   3   4   5   6   7   8   9 \" \"\"                                   \n\n\n\n\n\n\n\nlibrary(tidyverse)\n\n\n\n\n\n# Detect where initial state and procedure are separated\nsep <- which(input == \"\")\n\n# Split initial state of boxes with procedure steps\nboxes <- input[1:(sep-2)]\nprocedure <- input[(sep+1):length(input)] %>% \n  str_extract_all(\"\\\\d+\") %>% \n  map(as.integer)\n\n# Count the number of stack to compute the indexes of the relevant character indexes to catch\nstack_number <- max(str_count(string = boxes,\"\\\\w\"))\nboxes_location <- seq(1,(stack_number*4 - 1), by = 4)+1\n\n# Reconstruct stacks in a list of vectors\nstacks <- \n  map(boxes_location, ~ str_sub(boxes, .x, .x)) %>%\n  map(setdiff, c(\"\", \" \")) %>%\n  map(rev)\n\n\n# Launch the simulation\nfor (step in procedure) {\n    \n  qty <- step[1]\n  from <- step[2]\n  to <- step[3]\n  \n  stacks[[to]] <- c(stacks[[to]], rev(tail(stacks[[from]],qty))) # boxes are \n  # moved (they are reversed since the top ones need to be move before lower ones)\n  \n  stacks[[from]] <- stacks[[from]][1:(length(stacks[[from]])-qty)] # moved boxes \n  # are removed from their original stack\n}\n\n\n# We get the top box (last character of stack vector) for each stack\nresult <- unlist(map(stacks, tail, 1))\n\n\n\n\nThe crates at the top of each stacks are FRDSQRRCD."
-  },
-  {
-    "objectID": "posts/Advent of Code 2022/06/tuning-trouble.html",
-    "href": "posts/Advent of Code 2022/06/tuning-trouble.html",
-    "title": "Advent of Code - Day 6: Tuning Trouble",
-    "section": "",
-    "text": "input <- readLines(\"input.txt\")\n\nhead(input, 10)\n\n[1] \"qhbhzbzzfrzrbzzcjzjrrvcvrvqvvnggnngcgssswbblplrlflfnnnmmjppgddqndnrnlnccpfcfjcjvjdjqqqmhhmwhwmmsnsvsjvjnvjnvjvsjsmjsjccwcqwcqwqjqwjwmwbmmbzbsbvsslbsbbbntnvvphpqqvrrtbrtrfftppbggpzzfhfcfsfmssffmbmzzmqzzblzzzmwwnggjwgjwgjgpgmmjvvmcvmmcfchfhllwmlljqqldqdqttsgsvscsmsnsmstmtssvgsgddwdffbppwfpplhlchhhdvvdrrmttmptmmmjsmshmmmgqmgggzjgzzmwzwcwhchqqfpfvvbqvbqbrblrrmtmstmmjvmmdnmmzczdzpztppjhjjwzjjjtdjjpljpjcppjllsffhbffbhhgttqjqzzfzbzcbzcbcrrjjrwrgwwbcbpcccctrtqtfqqfjjpgpdgdfgfrggpjjljglgclcqcqmcqmmgjjllpmphpjjgfjjqrrbppwmpmccftctjtjgjtgggzffcggwzzzdjdzzlgzgjzzvqvppczzjnjvvfhhtwtttdwtdtvddpzpnpcnppmvmcmcsmstthctchcggtssdttvztvvldlfftqqbzzjttvzztppscctzccgmcmvmhhchcscbbshbssgwwthwhmwwcgwcwrrvrzvrzzzvhvdvmmprrdmrmfmrmbmjbbmqbmbqqhbbszsjjlqjljtjstshhgphpffdhhtggtgbbqcqgqccfffcpcbpbfppwqpqcclbbwdwsscpchhfpfmpfmflfnnmggwrrznnghgvhhghrrhwrrcschcscqcmcfcvvgzztjtqjjshspsqsmmjnnmttsshvhmmqfqzztbzttvhttmwttnqnfncfcpfflmllmtlmmphmhlmmltmtztcczhzbbfmmlglnnfpppqplljwjfwfdwdzwddszddqzqnzzzwwlzzqvvjlllrwlrrmpmrmbmpplpspqsqmqcmcjjshsvstvvwtvthvvrfvvqmmjpmjmrjmmlvvnnrjjrcrwrhwwqzzvgvngncgcqqcffmfzfssbnbfblbggwhggmtgtvvqhhpttbcbczcjjbqbhqbhqbbccbhbqhbbmppdlpdllbvvdpvdvwvsvppllgblbttmcmtccbsswmswwwzfwfhhtfhthctchcfhhhfjjvhjhgjjjcwjwggrtgrttcqcwcswccfdffvpvtptprrvjjqvjjghggshhwmmcscmsmhmvmppprfrwwrhhvghhtnhncctbbbwzzbgzgdzgdzdpdvpvbbwgbwwrqwrqwqbqvvclccfcfzfdfrrthrrqcqddplpqlppbbfrfmmrmnnwhhgddmwwrzrsswpwhwdwhhsmhshqsqllbvlbllwbwbpwwfwmwsmspsvsdsbscctpctppvvpggtjjdmdqqgqbgglccvzcvcnczcgzgmzznpzzpcpnpvpcvvffrttqrqttflfbfjfnnwnlwlhwwqzqnqfftstdsttglldwwgqwwvqqzczfzdffbfsfssfwswdwnwdnnbcncwctttvsvjsvsrvvbtvvzhhvjvtvtjtsjjvhjjwpjjnzzpczzppgcpgcpgcgsgvsgvsscrcpcpspllzvzddpssssdpsddhffllzmzhzfhhdvhhvbvwwpwqpwqpwwmvwmvwvgvmvpvmpmrmzrrblltjtggvnggvppthhzjhzhffrvrhvrhrlrslsflfhhtvhvmmhppjgpjpcccmqcqvqhvvfssrtmnwjjslwhjgpvrwspjlwdwrmvfgwmplrmjrllndrjzvjfbwvzpjpfqrnjspwcpsgcvdlmfdfrvwdcvmbrnzncgnqlcvgqtpsbbpvprncdsgvpqbpcnffwqmmfsvnzspchhrlnzbhcdfdgtsllmqfbrcqwbmmzrfvsghjpmrndsdbqvtprmblnbvbnpvhtphbpjwdssvwgdzwztbpzdcsqzldjzrgcwhhspblrtncvntppcgttlflflnntcnzpbpgsclcjvbjhldcdzwjjhnfwzjmgcwtljhvbncwqnjhbrhfqcmnsdvntsbgnpqttzvbhzzpdznrhjpnsqzsztsblstbghlpwbmqjctlnqnttwshfvmjdhgbgjdhbzrfjqndrrhlqcmplczjtwpstlsmwwzqzmgvhsvjgbrtfwmvwlbhpccbqvmfmlgmbmbmldbcwmmhpnnbnffbnqgwhclgpzgbpjqvzmqhhhpltnwrdfrrnmlfrzflpnjztlnfzzzgmncprtblpsvrqgrnzbzfzhzhjjjdrnpvjpnwmlmlgvvtqmdvpnhvcrdmthcnnnvhnzmvgrtdvcthgjtvcgmtpsvmfztrflrrzbmcfhftwwcnjfpjtsnzjccmvdnrrwvbfjgcjttdvzncqhlqqphwphclztbhlqcfmnhcjmsscplnrsjqpdzrrzbthbcdnrzgdmstpgqqsvzclvmzjjdfqhhhttwcjtmwcbltghmslqvltqbjqqjpjvgntvnlttjcnhltflglgsmjwjjfldpfgjgrhttbwfhpsdbsmsfmfbtjlnhvjfqjrqhwdrcwpfthdgqzjjjfcvgdffrhvvwzfghpszmjjgscjvjnlgnbfbgfrbbzbzbnzngthrddfmsgsqqdddpfqwlchfblrvjdcgnzfzwmmnmvnzmpfmhbbhsbfdfclzcnbrlgpbsvfgfpshrpvpgccmmghphrcvzwnlqjcfwrtwvlvcsdldldvnpwgrcsqlftllcctnvcwbdswvqlzwzzbpmvvctcrgnjfstbqvnzczrjlljfqzrwtfwmlvvdfbfntrrljtbrtbdfsqpnppfbppbsmghbnqddhrvwmgzttnqjrqlfrdhqjndmnjlbctgclltmznmrqtfjsjwnztdvhnhlfwpnnqlhhsrfzglsnrdnfvrqssbtlthzfnjdvrcgzsbnpdgqhhrlwspfqfqpvzdfwgrlhwplzvbzprsqzcwvhggvzpgjztnvwvddsflgsvqljmmhhdzqsqmthwzvllqwmsnvdpdbjcgdtrsnmwhnzhbhgjssstmhrpssnhnntmrbbbjgmjqtncbdljcgtmbctpgdrnqcnrpssrdtpbsmlzlcztbrggglswnjzqgbsmgbqdzppqrwgtnlrjrvlpnqlcdwhltzzlqdwwrglldzcqrjtjtlgdqrtwzjgtdthsdccsmsrbjjsgdqcwdltvnjwtddsnpnsvzcdbfqnvsjbngqrztmbrnbvhhjzdtqrgldpvjqjpnshbjdsdgbjdjzdmrvzhwmtgcjrfnprstqgfgnwfpcjzhlnwpdbtqbspssqdrzhmmsrqtlwngvbrvgdgztnrlwcnqwvcdmhhdrmpfqbgbjpvzwbsbgcpsnpjplcrjdhflqvsdctclqqnmprngtvbmlmpqrsqdsrzgsmzmsczpsnmfmtfnjvnddjhqbjdvtgftjfvjhgpjqdhlszqjmcbnwrppzwjvmgblspjmfhjdbnmrllnfqlpcbndvqdzhhmmrpsljgdshpnrgnmwfjsdncqcwlctccrqghfdbsqqbnwctcqpvlrqqqvdjwlcnzmvdmcvlwnftjnqqldfwhmdtcpnlgfcdjdrfvmwqdzsjzctmmmrswhlwthttvcsqqscdcsmjgqfjhswlpsfjrppdmbwrthcwszqwwgnjsdqdrswmnzbrvqcwlrlwwvjmrrhsnzprggbzhhdqwvnspsmzzqdtbphzvwrzvqnbntjndrwllzwchczdwvnfjjdwfhdlgncftldzwdtjzjrmnfwwgmqdrltmgrfsjztfcvwjsggtvbnsvthflwfdtljrgqhmfqhmhfffqhtgwtlmwgzsglqnfwnrnvgvbdgqjrqtsmgsmzdpffnnzwlpbqphqmgdzspfrdqlptwmfwlgnqqdhtbbjtfhllrhhdcszjtmrprzhzzlgjqbcnhzcmhzrsnmmrzztffrldthhfvwhgjhwmjfbdvnllfmlpdsldjnpcwlpbwqzdwbgjb\"\n\n\n\n\n\n\nget_marker_index <- function(characters, marker_length) {\n  for (i in seq_along(characters[1:(length(characters)-marker_length)])) {\n    set <- unique(characters[i:(i+marker_length-1)])\n    if (length(set) == marker_length) {\n      return(i+marker_length-1) \n      break\n    }\n  }\n}\n\n\ncharacters <- unlist(strsplit(input, \"\"))\n\nresult <- get_marker_index(characters, marker_length = 4)\n\n\n\n\nThe number of characters that were processed before first start-of-message marker is 1802."
-  },
-  {
-    "objectID": "posts/Advent of Code 2022/06/tuning-trouble.html#code-1",
-    "href": "posts/Advent of Code 2022/06/tuning-trouble.html#code-1",
-    "title": "Advent of Code - Day 6: Tuning Trouble",
-    "section": "Code",
-    "text": "Code\n\ncharacters <- unlist(strsplit(input, \"\"))\n\nresult <- get_marker_index(characters, marker_length = 14)"
-  },
-  {
-    "objectID": "posts/Advent of Code 2022/06/tuning-trouble.html#result-1",
-    "href": "posts/Advent of Code 2022/06/tuning-trouble.html#result-1",
-    "title": "Advent of Code - Day 6: Tuning Trouble",
-    "section": "Result",
-    "text": "Result\nThe number of characters that were processed before first start-of-message marker is 3551."
   },
   {
     "objectID": "posts/Advent of Code 2022/05/supply-stack.html#code-1",
@@ -119,46 +112,39 @@
     "text": "Result\nThe crates at the top of each stacks are HRFTQVWNN."
   },
   {
-    "objectID": "posts/Advent of Code 2022/09/rope-bridge2.html",
-    "href": "posts/Advent of Code 2022/09/rope-bridge2.html",
+    "objectID": "posts/Advent of Code 2022/09/rope-bridge.html",
+    "href": "posts/Advent of Code 2022/09/rope-bridge.html",
     "title": "Advent of Code - Day 9: Rope Bridge",
     "section": "",
     "text": "sample <-   readLines(\"sample.txt\")\n\n\ninput <- readLines(\"input.txt\")\n\nhead(input, 10)\n\n [1] \"U 2\" \"D 2\" \"R 2\" \"U 2\" \"D 1\" \"L 2\" \"R 2\" \"D 1\" \"R 2\" \"D 1\""
   },
   {
-    "objectID": "posts/Advent of Code 2022/09/rope-bridge2.html#code",
-    "href": "posts/Advent of Code 2022/09/rope-bridge2.html#code",
+    "objectID": "posts/Advent of Code 2022/09/rope-bridge.html#code",
+    "href": "posts/Advent of Code 2022/09/rope-bridge.html#code",
     "title": "Advent of Code - Day 9: Rope Bridge",
     "section": "Code",
     "text": "Code\n\nmove_knot <- function(head_coord, knot_coord) {\n  \n  # if the head and tail aren't touching and aren't in the same row or column\n  if (abs(head_coord$x - knot_coord$x) >  1 | abs(head_coord$y - knot_coord$y) > 1) {\n    available_coord <- list(\n      list(x = knot_coord$x + 1, y = knot_coord$y),\n      list(x = knot_coord$x + 1, y = knot_coord$y + 1),\n      list(x = knot_coord$x + 1, y = knot_coord$y - 1),\n      list(x = knot_coord$x - 1, y = knot_coord$y),\n      list(x = knot_coord$x - 1, y = knot_coord$y + 1),\n      list(x = knot_coord$x - 1, y = knot_coord$y - 1),\n      list(x = knot_coord$x, y = knot_coord$y + 1),\n      list(x = knot_coord$x, y = knot_coord$y - 1),\n      list(x = knot_coord$x, y = knot_coord$y)\n    )\n    \n    # Coordinate difference are computed between head and all possible future\n    # knot position\n    coord_diff <- unlist(\n      purrr::map(available_coord,\n                 ~ abs(.x$x - head_coord$x) + abs(.x$y - head_coord$y)))\n    \n    \n    # new knot coordinate is the one with lowest difference\n    knot_coord <- available_coord[[which(coord_diff == min(coord_diff))]]\n  }\n  return(knot_coord)\n}\n\n\nhead_coord <- list(x=0,y=0)\ntail_coord <- list(x=0,y=0)\n\nvisited_coord <- c()\n\nfor (move in input) {\n  \n  move_vec <- unlist(strsplit(move, \" \"))\n  \n  direction <- move_vec[1]\n  distance <- move_vec[2]\n  \n  for (d in 1:distance) {\n    # message(d)\n    if (direction == \"R\") {\n      head_coord$x <- head_coord$x + 1\n    } else if (direction == \"L\"){\n      head_coord$x = head_coord$x - 1\n    } else if (direction == \"U\") {\n      head_coord$y = head_coord$y + 1\n    } else if (direction == \"D\") {\n      head_coord$y = head_coord$y - 1\n    }\n    \n    tail_coord <- move_knot(head_coord = head_coord, knot_coord = tail_coord)\n    \n    visited_coord <- c(visited_coord, paste(tail_coord$x, tail_coord$y, sep =  \";\"))\n  }\n}"
   },
   {
-    "objectID": "posts/Advent of Code 2022/09/rope-bridge2.html#result",
-    "href": "posts/Advent of Code 2022/09/rope-bridge2.html#result",
+    "objectID": "posts/Advent of Code 2022/09/rope-bridge.html#result",
+    "href": "posts/Advent of Code 2022/09/rope-bridge.html#result",
     "title": "Advent of Code - Day 9: Rope Bridge",
     "section": "Result",
     "text": "Result\n\nlength(unique(visited_coord))\n\n[1] 6337"
   },
   {
-    "objectID": "posts/Advent of Code 2022/09/rope-bridge2.html#result-1",
-    "href": "posts/Advent of Code 2022/09/rope-bridge2.html#result-1",
+    "objectID": "posts/Advent of Code 2022/09/rope-bridge.html#result-1",
+    "href": "posts/Advent of Code 2022/09/rope-bridge.html#result-1",
     "title": "Advent of Code - Day 9: Rope Bridge",
     "section": "Result",
     "text": "Result\n\nlength(unique(visited_coord))\n\n[1] 2455"
   },
   {
-    "objectID": "posts/Advent of Code 2022/08/tree-top-treehouse.html",
-    "href": "posts/Advent of Code 2022/08/tree-top-treehouse.html",
-    "title": "Advent of Code - Day 8: Treetop Tree House",
+    "objectID": "posts/Advent of Code 2022/03/roucksack-reorganization.html",
+    "href": "posts/Advent of Code 2022/03/roucksack-reorganization.html",
+    "title": "Advent of Code - Day 3: Rucksack Reorganization",
     "section": "",
-    "text": "library(readr)\n\n\n\n\ninput <-   as.matrix(read_fwf(\"input.txt\",fwf_widths(widths = rep(1,99))))"
-  },
-  {
-    "objectID": "posts/Advent of Code 2022/08/tree-top-treehouse.html#code",
-    "href": "posts/Advent of Code 2022/08/tree-top-treehouse.html#code",
-    "title": "Advent of Code - Day 8: Treetop Tree House",
-    "section": "Code",
-    "text": "Code\n\nis_visible <- function(x){\n  results <- vector(mode = \"logical\", length = length(x))\n  \n  for (i in seq_along(x)) {\n    if(i == 1 || i == length(x)){\n      results[i] <- TRUE\n    } else if (all(x[i] > x[1:i-1]) || all(x[i] > x[(i+1):length(x)])) {\n      results[i] <- TRUE\n    } else {\n      results[i] <- FALSE\n    }\n  }\n  results\n  \n}\n\nsum(t(apply(input, 1, is_visible)) | apply(input, 2, is_visible))\n\n[1] 1840"
+    "text": "input <- readLines(\"input.txt\")\n\nhead(input, 10)\n\n [1] \"zBBtHnnHtwwHplmlRlzPLCpp\"                         \"vvhJccJFGFcNsdNNJbhJsJQplQMRLQMlfdfTPCLfQQCT\"     \"GPhjcjhZDjWtnSVH\"                                \n [4] \"BNhHVhrGNVTbDHdDJdJRPJdSQQSJwPjR\"                 \"lvtsfbsqzwSnJcvjSm\"                               \"MftttFLftZMLgtgMbltMqZzbDNrTpVGhNWrDTrpTGNpZGZhD\"\n [7] \"VSSHcTgTtTdtllZlzmmbljTn\"                         \"RqMqsFfQLLFLQFMMfRLPZLvPpCfWrbpmCbjCnfjlWmnrmmnm\" \"hqRDqPDRsqNHwtHSNBZtJd\"                          \n[10] \"tNFDpDFrtdjfmjjjFmFFdScpZhZScTJgpHccHhMJgS\"      \n\n\n\n\n\n\n\n\n\n\n\n\nfind_common <- function(rucksack){\n  len <- nchar(rucksack)\n  chars <- unlist(strsplit(rucksack, \"\"))\n  first_part <- chars[1:(len/2)]\n  second_part <- chars[(len/2)+1:len]\n  return(intersect(first_part, second_part))\n}\n\nget_priority <- function(item){\n  if(item %in% LETTERS){\n    priority <- 26 + match(item, LETTERS)\n  } else {\n    priority <- match(item, letters)\n  }\n  return(priority)\n}\n\n\nsum_priority <- 0\n\nfor (i in input) {\n  common_item <- find_common(i)\n  priority <- get_priority(common_item)\n  sum_priority <- sum_priority + priority\n}\n\n\n\n\nTotal sum of all priorities is 7597."
   },
   {
     "objectID": "posts/Advent of Code 2022/03/roucksack-reorganization.html#result-1",
@@ -166,5 +152,19 @@
     "title": "Advent of Code - Day 3: Rucksack Reorganization",
     "section": "Result",
     "text": "Result\nTotal sum of all priorities is 2607."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "Advent of Code - Day 9: Rope Bridge\n\n\n9h day of the advent of code using R\n\n\n\n\n\n\nDec 9, 2022\n\n\n3 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 8: Treetop Tree House\n\n\n8th day of the advent of code using R\n\n\n\n\n\n\nDec 8, 2022\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 6: Tuning Trouble\n\n\nSixth day of the advent of code using R\n\n\n\n\n\n\nDec 5, 2022\n\n\n0 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 5: Supply Stacks\n\n\nFifth day of the advent of code using R\n\n\n\n\n\n\nDec 5, 2022\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 4: Camp Cleanup\n\n\nFourth day of the advent of code using R\n\n\n\n\n\n\nDec 4, 2022\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 3: Rucksack Reorganization\n\n\nThird day of the advent of code using R\n\n\n\n\n\n\nDec 3, 2022\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 2: Rock Paper Scissors\n\n\nSecond day of the advent of code using R\n\n\n\n\n\n\nDec 2, 2022\n\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 1: Calorie Counting\n\n\nFirst day of the advent of code using R\n\n\n\n\n\n\nDec 1, 2022\n\n\n3 min\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
   }
 ]
