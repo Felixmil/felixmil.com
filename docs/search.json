@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Welcome",
     "section": "",
-    "text": "Advent of Code - Day 6: Tuning Trouble\n\n\nSixth day of the advent of code using R\n\n\n\n\n\n\nDec 5, 2022\n\n\n0 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 5: Supply Stacks\n\n\nFifth day of the advent of code using R\n\n\n\n\n\n\nDec 5, 2022\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 4: Camp Cleanup\n\n\nFourth day of the advent of code using R\n\n\n\n\n\n\nDec 4, 2022\n\n\n0 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 3: Rucksack Reorganization\n\n\nThird day of the advent of code using R\n\n\n\n\n\n\nDec 3, 2022\n\n\n0 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 2: Rock Paper Scissors\n\n\nSecond day of the advent of code using R\n\n\n\n\n\n\nDec 2, 2022\n\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 1: Calorie Counting\n\n\nFirst day of the advent of code using R\n\n\n\n\n\n\nDec 1, 2022\n\n\n3 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Advent of Code - Day 9: Rope Bridge\n\n\n9th day of the advent of code using R\n\n\n\n\n\n\nDec 9, 2022\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 9: Rope Bridge\n\n\n9h day of the advent of code using R\n\n\n\n\n\n\nDec 9, 2022\n\n\n3 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 9: Rope Bridge\n\n\n9h day of the advent of code using R\n\n\n\n\n\n\nDec 9, 2022\n\n\n3 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 6: Tuning Trouble\n\n\nSixth day of the advent of code using R\n\n\n\n\n\n\nDec 5, 2022\n\n\n0 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 6: Tuning Trouble\n\n\nSixth day of the advent of code using R\n\n\n\n\n\n\nDec 5, 2022\n\n\n2 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 5: Supply Stacks\n\n\nFifth day of the advent of code using R\n\n\n\n\n\n\nDec 5, 2022\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 4: Camp Cleanup\n\n\nFourth day of the advent of code using R\n\n\n\n\n\n\nDec 4, 2022\n\n\n0 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 3: Rucksack Reorganization\n\n\nThird day of the advent of code using R\n\n\n\n\n\n\nDec 3, 2022\n\n\n0 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 2: Rock Paper Scissors\n\n\nSecond day of the advent of code using R\n\n\n\n\n\n\nDec 2, 2022\n\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvent of Code - Day 1: Calorie Counting\n\n\nFirst day of the advent of code using R\n\n\n\n\n\n\nDec 1, 2022\n\n\n3 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/Advent of Code 2022/01/Calorie-Counting.html",
@@ -117,5 +117,47 @@
     "title": "Advent of Code - Day 5: Supply Stacks",
     "section": "Result",
     "text": "Result\nThe crates at the top of each stacks are HRFTQVWNN."
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/09/rope-bridge2.html",
+    "href": "posts/Advent of Code 2022/09/rope-bridge2.html",
+    "title": "Advent of Code - Day 9: Rope Bridge",
+    "section": "",
+    "text": "sample <-   readLines(\"sample.txt\")\n\n\ninput <- readLines(\"input.txt\")\n\nhead(input, 10)\n\n [1] \"U 2\" \"D 2\" \"R 2\" \"U 2\" \"D 1\" \"L 2\" \"R 2\" \"D 1\" \"R 2\" \"D 1\""
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/09/rope-bridge2.html#code",
+    "href": "posts/Advent of Code 2022/09/rope-bridge2.html#code",
+    "title": "Advent of Code - Day 9: Rope Bridge",
+    "section": "Code",
+    "text": "Code\n\nmove_knot <- function(head_coord, knot_coord) {\n  \n  # if the head and tail aren't touching and aren't in the same row or column\n  if (abs(head_coord$x - knot_coord$x) >  1 | abs(head_coord$y - knot_coord$y) > 1) {\n    available_coord <- list(\n      list(x = knot_coord$x + 1, y = knot_coord$y),\n      list(x = knot_coord$x + 1, y = knot_coord$y + 1),\n      list(x = knot_coord$x + 1, y = knot_coord$y - 1),\n      list(x = knot_coord$x - 1, y = knot_coord$y),\n      list(x = knot_coord$x - 1, y = knot_coord$y + 1),\n      list(x = knot_coord$x - 1, y = knot_coord$y - 1),\n      list(x = knot_coord$x, y = knot_coord$y + 1),\n      list(x = knot_coord$x, y = knot_coord$y - 1),\n      list(x = knot_coord$x, y = knot_coord$y)\n    )\n    \n    # Coordinate difference are computed between head and all possible future\n    # knot position\n    coord_diff <- unlist(\n      purrr::map(available_coord,\n                 ~ abs(.x$x - head_coord$x) + abs(.x$y - head_coord$y)))\n    \n    \n    # new knot coordinate is the one with lowest difference\n    knot_coord <- available_coord[[which(coord_diff == min(coord_diff))]]\n  }\n  return(knot_coord)\n}\n\n\nhead_coord <- list(x=0,y=0)\ntail_coord <- list(x=0,y=0)\n\nvisited_coord <- c()\n\nfor (move in input) {\n  \n  move_vec <- unlist(strsplit(move, \" \"))\n  \n  direction <- move_vec[1]\n  distance <- move_vec[2]\n  \n  for (d in 1:distance) {\n    # message(d)\n    if (direction == \"R\") {\n      head_coord$x <- head_coord$x + 1\n    } else if (direction == \"L\"){\n      head_coord$x = head_coord$x - 1\n    } else if (direction == \"U\") {\n      head_coord$y = head_coord$y + 1\n    } else if (direction == \"D\") {\n      head_coord$y = head_coord$y - 1\n    }\n    \n    tail_coord <- move_knot(head_coord = head_coord, knot_coord = tail_coord)\n    \n    visited_coord <- c(visited_coord, paste(tail_coord$x, tail_coord$y, sep =  \";\"))\n  }\n}"
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/09/rope-bridge2.html#result",
+    "href": "posts/Advent of Code 2022/09/rope-bridge2.html#result",
+    "title": "Advent of Code - Day 9: Rope Bridge",
+    "section": "Result",
+    "text": "Result\n\nlength(unique(visited_coord))\n\n[1] 6337"
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/09/rope-bridge2.html#result-1",
+    "href": "posts/Advent of Code 2022/09/rope-bridge2.html#result-1",
+    "title": "Advent of Code - Day 9: Rope Bridge",
+    "section": "Result",
+    "text": "Result\n\nlength(unique(visited_coord))\n\n[1] 2455"
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/08/tree-top-treehouse.html",
+    "href": "posts/Advent of Code 2022/08/tree-top-treehouse.html",
+    "title": "Advent of Code - Day 9: Rope Bridge",
+    "section": "",
+    "text": "library(readr)\n\n\n\n\ninput <-   as.matrix(read_fwf(\"input.txt\",fwf_widths(widths = rep(1,99))))"
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/08/tree-top-treehouse.html#code",
+    "href": "posts/Advent of Code 2022/08/tree-top-treehouse.html#code",
+    "title": "Advent of Code - Day 9: Rope Bridge",
+    "section": "Code",
+    "text": "Code\n\nis_visible <- function(x){\n  results <- vector(mode = \"logical\", length = length(x))\n  \n  for (i in seq_along(x)) {\n    if(i == 1 || i == length(x)){\n      results[i] <- TRUE\n    } else if (all(x[i] > x[1:i-1]) || all(x[i] > x[(i+1):length(x)])) {\n      results[i] <- TRUE\n    } else {\n      results[i] <- FALSE\n    }\n  }\n  results\n  \n}\n\nsum(t(apply(input, 1, is_visible)) | apply(input, 2, is_visible))\n\n[1] 1840"
   }
 ]
