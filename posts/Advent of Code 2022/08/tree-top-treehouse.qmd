@@ -1,0 +1,94 @@
+---
+title: "Advent of Code - Day 9: Rope Bridge"
+subtitle: "9th day of the advent of code using R"
+date: 2022-12-09
+categories: "advent of code"
+format: 
+   html:
+     df-print: paged
+editor: 
+  markdown: 
+    wrap: 80
+---
+
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(
+  comment = '',
+  message = F, 
+  warning = F
+)
+```
+
+
+# Part 1
+
+```{r}
+library(readr)
+```
+
+
+## Input
+
+
+
+```{r}
+input <-   as.matrix(read_fwf("input.txt",fwf_widths(widths = rep(1,99)))) 
+```
+
+# Part 1
+
+
+## Code
+
+
+```{r}
+is_visible <- function(x){
+  results <- vector(mode = "logical", length = length(x))
+  
+  for (i in seq_along(x)) {
+    if(i == 1 || i == length(x)){
+      results[i] <- TRUE
+    } else if (all(x[i] > x[1:i-1]) || all(x[i] > x[(i+1):length(x)])) {
+      results[i] <- TRUE
+    } else {
+      results[i] <- FALSE
+    }
+  }
+  results
+  
+}
+
+sum(t(apply(input, 1, is_visible)) | apply(input, 2, is_visible))
+
+
+```
+
+# Part 2
+
+```{r}
+scenic_score <- function(x){
+  right <- vector(mode = "numeric", length = length(x))
+  left <- vector(mode = "numeric", length = length(x))
+  
+  for (i in seq_along(x)) {
+    if (i == 1) {
+      left[i] <- 0
+    } else {
+      left_dist <- which(x[(i-1):1] >= x[i])[1]
+      left[i] <- ifelse(is.na(left_dist), i-1, left_dist)
+    }
+    if(i==length(x)){
+      right[i] <- 0
+    } else {
+      right_dist <- which(x[(i+1):length(x)] >= x[i])[1]
+      right[i] <- ifelse(is.na(right_dist), length(x) - i, right_dist)
+    }
+  }
+  
+  left*right
+}
+
+max(t(apply(input, 1, scenic_score)) * apply(input, 2, scenic_score))
+
+```
+
