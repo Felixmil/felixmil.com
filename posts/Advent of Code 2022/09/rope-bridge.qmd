@@ -36,7 +36,7 @@ sample <-   readLines("sample.txt")
 ```{r}
 input <- readLines("input.txt")
 
- head(input, 10)
+head(input, 10)
 ```
 
 # Part 1
@@ -48,12 +48,8 @@ input <- readLines("input.txt")
 ```{r}
 move_knot <- function(head_coord, knot_coord) {
   
-  x_diff = abs(head_coord$x - knot_coord$x)
-  y_diff = abs(head_coord$y - knot_coord$y)
-  
-  diff_sum <- abs(x_diff) + abs(y_diff)
-  
-  if (x_diff > 1 | y_diff > 1) {
+  # if the head and tail aren't touching and aren't in the same row or column
+  if (abs(head_coord$x - knot_coord$x) >  1 | abs(head_coord$y - knot_coord$y) > 1) {
     available_coord <- list(
       list(x = knot_coord$x + 1, y = knot_coord$y),
       list(x = knot_coord$x + 1, y = knot_coord$y + 1),
@@ -66,29 +62,29 @@ move_knot <- function(head_coord, knot_coord) {
       list(x = knot_coord$x, y = knot_coord$y)
     )
     
-    coord_diff <-
+    # Coordinate difference are computed between head and all possible future
+    # knot position
+    coord_diff <- unlist(
       purrr::map(available_coord,
-                 ~ abs(.x$x - head_coord$x) + abs(.x$y - head_coord$y))
+                 ~ abs(.x$x - head_coord$x) + abs(.x$y - head_coord$y)))
     
-    knot_coord <- available_coord[[which(diff == min(diff))]]
     
-    return(knot_coord)
-    
+    # new knot coordinate is the one with lowest difference
+    knot_coord <- available_coord[[which(coord_diff == min(coord_diff))]]
   }
+  return(knot_coord)
 }
 
 ```
 
 
 ```{r}
-moves <- input
-
 head_coord <- list(x=0,y=0)
 tail_coord <- list(x=0,y=0)
 
 visited_coord <- c()
 
-for (move in moves) {
+for (move in input) {
   
   move_vec <- unlist(strsplit(move, " "))
   
@@ -107,7 +103,7 @@ for (move in moves) {
       head_coord$y = head_coord$y - 1
     }
     
-    tail_coord <- move_knot(head_coord, tail_coord)
+    tail_coord <- move_knot(head_coord = head_coord, knot_coord = tail_coord)
     
     visited_coord <- c(visited_coord, paste(tail_coord$x, tail_coord$y, sep =  ";"))
   }
@@ -116,28 +112,28 @@ for (move in moves) {
 
 ```
 
-# Part 2
+
+## Result
 
 ```{r}
-sample2 <- readLines("sample2.txt")
+length(unique(visited_coord))
 ```
 
+# Part 2
+
 
 ```{r}
-
 knots <- list()
-
-knots <- vector("list", 10)
 
 for (i in 1:10) {
   knots[[i]] <- list(x=0, y=0)
 }
 
-moves <- input
+
 visited_coord <- c()
 
-for (move in moves) {
-
+for (move in input) {
+  
   move_vec <- unlist(strsplit(move, " "))
   
   direction <- move_vec[1]
@@ -153,10 +149,10 @@ for (move in moves) {
     } else if (direction == "D") {
       knots[[1]]$y = knots[[1]]$y - 1
     }
-    for (i in 2:10) {
-      new_coord <- move_knot(direction, knots[[i-1]], knots[[i]])
-      if (new_coord$x != knots[[i]]$x | new_coord$y != knots[[i]]$y) {
-        knots[[i]] <- new_coord
+    for (i in 1:9) {
+      new_coord <- move_knot(knots[[i]], knots[[i+1]])
+      if (new_coord$x != knots[[i+1]]$x | new_coord$y != knots[[i+1]]$y) {
+        knots[[i+1]] <- new_coord
       } else{
         break
       }
@@ -166,6 +162,11 @@ for (move in moves) {
   }
   
 }
+```
 
+## Result
+
+```{r}
 length(unique(visited_coord))
 ```
+
