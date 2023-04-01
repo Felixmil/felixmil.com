@@ -1,0 +1,113 @@
+---
+title: "About Me"
+freeze: auto
+about:
+  template: jolla
+  image: assets/me.jpg
+  links:
+      - icon: twitter
+        href: https://twitter.com/felix_mil_
+      - icon: mastodon
+        href: https://fosstodon.org/@felix_mil
+      - icon: linkedin
+        href: https://www.linkedin.com/in/felix-mil/
+      - icon: github
+        href: https://github.com/Felixmil/felixmil.github.io
+      - icon: envelope-fill
+        href: mailto:felix.mil.dev@gmail.com
+---
+
+
+
+I am a software (R) developer at [esqLABS](https://esqlabs.com), working on the [Open Systems Pharmacology Suite R](https://www.open-systems-pharmacology.org) and internal packages.
+
+I previously worked as a data scientist in Stago, a company that design, sell and distribute hemostasis analyzers and was in charge of supporting R&D efforts using data.
+
+
+# Now
+
+# Timeline
+
+::: {.column-screen-inset-shaded}
+
+Below are the main milestones I passed during my journey toward a DataScience carreer.
+
+```{r,echo=F, warning=F, message=F,fig.asp=1.618,fig.align='center',fig.width=7}
+# Milestones lists
+data_raw <- c('
+  - 2019-07-09: Attended useR2019 in Toulouse
+  - 2019-05-23: Shiny app for Rmd report generation calling python scripts through reticulate
+  - 2019-04-27: First Github Pull Request on Tufesque2 R package
+  - 2019-04-02: Rebuilt this website using blogdown
+  - 2019-03-06: First requests on a Datalake (Hadoop) from RStudio
+  - 2019-02-23: Attended SatRday in Paris
+  _______
+  
+  - 2018-11-15: First lines of Python codes
+  - 2018-10-01: First job as Data Scientist
+  - 2018-08-25: First (actualy useful) Shiny App
+  - 2018-06-22: First quantitative predictive model estimating fibrinogen concentration in blood
+  - 2018-05-14: Went to Budapest for eRum
+  - 2018-02-04: First reproducible analysis report using Rmarkdown
+  
+  _______
+  
+  - 2017-07-02: Installed R on my personnal computer')
+#Data Prep
+library(tidyverse)
+library(lubridate)
+data <- read_lines(data_raw)
+dates <- c()
+milestones <- c()
+for(i in c(1:length(data))){
+  date = str_extract(data[i],'[:digit:]{4}-[:digit:]{2}-[:digit:]{2}')
+  milestone = str_extract(data[i],'(?<=\\: ).*')
+  dates <- append(dates,date)
+  milestones <- append(milestones,milestone)
+}
+data_clean <- 
+  tibble(dates, milestones) %>% 
+  drop_na() %>%
+  mutate(dates = as.Date(dates),
+         milestones = str_replace(milestones,'(?<=.{45})[:blank:]','\n'))
+#Scales data
+month_date_range <- seq(as.Date("2017-07-01"), max(data_clean$dates)+30, by='month')
+month <- lubridate::month(month_date_range,label=T,locale="en_US")
+dates_df <- data.frame(month_date_range, month)
+dates_df <- dates_df %>% 
+  mutate(year = case_when(month=="Jan" ~ lubridate::year(month_date_range),
+                                          TRUE ~ as.numeric(NA)))
+# Plot 
+ggplot(dates_df, aes(x=0, y=month_date_range))+
+   ggrepel::geom_text_repel(data=data_clean, aes(x= 0, y=dates, label=milestones,size=4), 
+                           hjust=1,
+                           vjust=0.5,
+                           force = 0.5,
+                           box.padding = unit(0.15,"lines"),
+                           nudge_x = 3,
+                           direction = 'y',
+                           segment.colour = "grey40"
+                           )+
+  geom_vline(xintercept=0,size=2.5, color="white")+
+  geom_vline(xintercept=0,size=1, color="grey20")+
+  geom_label(aes(label=year),fontface='bold',fill='#fafafa', nudge_x = -0.55, size=6) +
+  geom_text(aes(label=month), color="grey20", fontface='bold',nudge_x = -0.26,hjust=0) +
+  geom_point(data=data_clean,aes(x=0,y=dates), color='grey20')+
+  geom_point(aes(color=rank(month_date_range)),size=6) +
+  lims(x=c(-0.6,3))+
+  theme_classic()+
+  theme(axis.line.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.title.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.text.x =element_blank(),
+        axis.ticks.x =element_blank(),
+        axis.line.x =element_blank(),
+        legend.position = "bottom",
+        plot.background = element_rect(fill='#fafafa'),
+        panel.background = element_rect(fill = '#fafafa'),panel.border = element_blank())+
+  scale_color_viridis_c(direction = -1)+
+  guides(color=F, size=F)
+```
+:::
