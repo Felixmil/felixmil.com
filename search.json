@@ -1,0 +1,205 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About Me",
+    "section": "",
+    "text": "I previously worked as a data scientist in Stago, a company that design, sell and distribute hemostasis analyzers and was in charge of supporting R&D efforts using data.\n\nNow\n\n\nTimeline\n\nBelow are the main milestones I passed during my journey toward a DataScience carreer."
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "10h day of the advent of code using R\n\n\n\n\n\n\nDec 10, 2022\n\n\n0 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9h day of the advent of code using R\n\n\n\n\n\n\nDec 9, 2022\n\n\n3 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8th day of the advent of code using R\n\n\n\n\n\n\nDec 8, 2022\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFifth day of the advent of code using R\n\n\n\n\n\n\nDec 5, 2022\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSixth day of the advent of code using R\n\n\n\n\n\n\nDec 5, 2022\n\n\n0 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFourth day of the advent of code using R\n\n\n\n\n\n\nDec 4, 2022\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThird day of the advent of code using R\n\n\n\n\n\n\nDec 3, 2022\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSecond day of the advent of code using R\n\n\n\n\n\n\nDec 2, 2022\n\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFirst day of the advent of code using R\n\n\n\n\n\n\nDec 1, 2022\n\n\n3 min\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Felix MIL",
+    "section": "",
+    "text": "I previously worked as a data scientist in Stago, a company that design, sell and distribute hemostasis analyzers and was in charge of supporting R&D efforts using data.\nMore in the about section."
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/01/Calorie-Counting.html",
+    "href": "posts/Advent of Code 2022/01/Calorie-Counting.html",
+    "title": "Advent of Code - Day 1: Calorie Counting",
+    "section": "",
+    "text": "— Day 1: Calorie Counting —\nSanta’s reindeer typically eat regular reindeer food, but they need a lot of magical energy to deliver presents on Christmas. For that, their favorite snack is a special type of star fruit that only grows deep in the jungle. The Elves have brought you on their annual expedition to the grove where the fruit grows.\nTo supply enough magical energy, the expedition needs to retrieve a minimum of fifty stars by December 25th. Although the Elves assure you that the grove has plenty of fruit, you decide to grab any fruit you see along the way, just in case.\nCollect stars by solving puzzles. Two puzzles will be made available on each day in the Advent calendar; the second puzzle is unlocked when you complete the first. Each puzzle grants one star. Good luck!\nThe jungle must be too overgrown and difficult to navigate in vehicles or access from the air; the Elves’ expedition traditionally goes on foot. As your boats approach land, the Elves begin taking inventory of their supplies. One important consideration is food - in particular, the number of Calories each Elf is carrying (your puzzle input).\nThe Elves take turns writing down the number of Calories contained by the various meals, snacks, rations, etc. that they’ve brought with them, one item per line. Each Elf separates their own inventory from the previous Elf’s inventory (if any) by a blank line.\nFor example, suppose the Elves finish writing their items’ Calories and end up with the following list:\n1000 \n2000 \n3000\n\n4000\n\n5000 \n6000\n\n7000 \n8000 \n9000\n\n10000 \nThis list represents the Calories of the food carried by five Elves:\nThe first Elf is carrying food with 1000, 2000, and 3000 Calories, a total of 6000 Calories. The second Elf is carrying one food item with 4000 Calories. The third Elf is carrying food with 5000 and 6000 Calories, a total of 11000 Calories. The fourth Elf is carrying food with 7000, 8000, and 9000 Calories, a total of 24000 Calories. The fifth Elf is carrying one food item with 10000 Calories. In case the Elves get hungry and need extra snacks, they need to know which Elf to ask: they’d like to know how many Calories are being carried by the Elf carrying the most Calories. In the example above, this is 24000 (carried by the fourth Elf).\nFind the Elf carrying the most Calories. How many total Calories is that Elf carrying?\n\n\n\n\n\ninput <- readLines(\"input.txt\")\n\nhead(input, 10)\n\n [1] \"10062\" \"15651\" \"1271\"  \"14355\" \"7220\"  \"\"      \"4878\"  \"1754\"  \"8466\" \n[10] \"4741\" \n\n\n\n\n\n\nlibrary(tibble)\nlibrary(dplyr)\n\n\n\n\n\n# init variables\nelf_id <- 1\ncalories <- 0\nresult_df <- tibble()\n\nfor (line in input) {\n  if (line == \"\") { # if empty line, then it is a new elf*\n    # previous elf is saved\n    result_df <- rbind(result_df, \n                       tibble(elf_id = elf_id, \n                     total_calories = calories))\n    # elf_id is increase since we move to next elf\n    elf_id <- elf_id + 1\n    # calories counter is reset\n    calories <- 0\n  } else { # Le line is not empty so it's just more calories brough by this elf\n    calories <- calories + as.numeric(line)\n  }\n}\n\n\n\n\n\narrange(result_df, desc(total_calories))\n\n\n\n  \n\n\n\n\n\n\nThe elf carrying the most calories is the 148th whom carries 70613 calories."
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/01/Calorie-Counting.html#challenge-1",
+    "href": "posts/Advent of Code 2022/01/Calorie-Counting.html#challenge-1",
+    "title": "Advent of Code - Day 1: Calorie Counting",
+    "section": "Challenge",
+    "text": "Challenge\n\n— Part Two — By the time you calculate the answer to the Elves’ question, they’ve already realized that the Elf carrying the most Calories of food might eventually run out of snacks.\nTo avoid this unacceptable situation, the Elves would instead like to know the total Calories carried by the top three Elves carrying the most Calories. That way, even if one of those Elves runs out of snacks, they still have two backups.\nIn the example above, the top three Elves are the fourth Elf (with 24000 Calories), then the third Elf (with 11000 Calories), then the fifth Elf (with 10000 Calories). The sum of the Calories carried by these three elves is 45000.\nFind the top three Elves carrying the most Calories. How many Calories are those Elves carrying in total?"
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/01/Calorie-Counting.html#result-1",
+    "href": "posts/Advent of Code 2022/01/Calorie-Counting.html#result-1",
+    "title": "Advent of Code - Day 1: Calorie Counting",
+    "section": "Result",
+    "text": "Result\n\ntop_3 <-\n  result_df %>%\n  top_n(3, total_calories)\n\ntop_3\n\n\n\n  \n\n\n\nThe Three elves carrying the most calories are the 66, 148, 160th with a total of 205 805 calories."
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/02/rock-paper-scissors.html",
+    "href": "posts/Advent of Code 2022/02/rock-paper-scissors.html",
+    "title": "Advent of Code - Day 2: Rock Paper Scissors",
+    "section": "",
+    "text": "— Day 2: Rock Paper Scissors —\nThe Elves begin to set up camp on the beach. To decide whose tent gets to be closest to the snack storage, a giant Rock Paper Scissors tournament is already in progress.\nRock Paper Scissors is a game between two players. Each game contains many rounds; in each round, the players each simultaneously choose one of Rock, Paper, or Scissors using a hand shape. Then, a winner for that round is selected: Rock defeats Scissors, Scissors defeats Paper, and Paper defeats Rock. If both players choose the same shape, the round instead ends in a draw.\nAppreciative of your help yesterday, one Elf gives you an encrypted strategy guide (your puzzle input) that they say will be sure to help you win. “The first column is what your opponent is going to play: A for Rock, B for Paper, and C for Scissors. The second column–” Suddenly, the Elf is called away to help with someone’s tent.\nThe second column, you reason, must be what you should play in response: X for Rock, Y for Paper, and Z for Scissors. Winning every time would be suspicious, so the responses must have been carefully chosen.\nThe winner of the whole tournament is the player with the highest score. Your total score is the sum of your scores for each round. The score for a single round is the score for the shape you selected (1 for Rock, 2 for Paper, and 3 for Scissors) plus the score for the outcome of the round (0 if you lost, 3 if the round was a draw, and 6 if you won).\nSince you can’t be sure if the Elf is trying to help you or trick you, you should calculate the score you would get if you were to follow the strategy guide.\nFor example, suppose you were given the following strategy guide:\nA Y B X C Z This strategy guide predicts and recommends the following:\nIn the first round, your opponent will choose Rock (A), and you should choose Paper (Y). This ends in a win for you with a score of 8 (2 because you chose Paper + 6 because you won). In the second round, your opponent will choose Paper (B), and you should choose Rock (X). This ends in a loss for you with a score of 1 (1 + 0). The third round is a draw with both players choosing Scissors, giving you a score of 3 + 3 = 6. In this example, if you were to follow the strategy guide, you would get a total score of 15 (8 + 1 + 6).\nWhat would your total score be if everything goes exactly according to your strategy guide?\n\n\n\n\n\ninput <- readLines(\"input.txt\")\n\nhead(input, 10)\n\n [1] \"A Z\" \"A Y\" \"B X\" \"B X\" \"C X\" \"B X\" \"A X\" \"A X\" \"C X\" \"A X\"\n\n\n\n\n\n\nlibrary(tibble)\nlibrary(dplyr)\nlibrary(purrr)\n\n\n\n\n\nchoices = c(\"rock\", \"paper\", \"scissors\")\n\ntranslate <- function(letter){\n  if(letter %in% c(\"A\", \"X\")) 1L #rock\n  else if(letter %in% c(\"B\", \"Y\")) 2L #paper\n  else if(letter %in% c(\"C\", \"Z\")) 3L #scissors\n}\n  \n  \nget_round_score <- function(opponent, player) {\n\n  if (opponent == player) {\n    bonus = +3\n  } else if ((player > opponent | (player == 1 & opponent == 3)) & !(player == 3 & opponent == 1)) {\n    bonus = +6\n  } else {\n    bonus = 0\n  }\n  \n  return(player + bonus)\n  \n}\n\n\ntotal_score <- 0\n\nfor (scenario in strsplit(input, \" \")) {\n  translated <- map_int(scenario, translate)\n  opponent = translated[1]\n  player = translated[2]\n  \n  round_score <- get_round_score(opponent, player)\n  \n  total_score <- total_score + round_score\n  \n}\n\n\n\n\nTotal score obtained with the scenarios is 11150."
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/02/rock-paper-scissors.html#challenge-1",
+    "href": "posts/Advent of Code 2022/02/rock-paper-scissors.html#challenge-1",
+    "title": "Advent of Code - Day 2: Rock Paper Scissors",
+    "section": "Challenge",
+    "text": "Challenge\n\n--- Part Two ---\nThe Elf finishes helping with the tent and sneaks back over to you. “Anyway, the second column says how the round needs to end: X means you need to lose, Y means you need to end the round in a draw, and Z means you need to win. Good luck!”\nThe total score is still calculated in the same way, but now you need to figure out what shape to choose so the round ends as indicated. The example above now goes like this:\n\nIn the first round, your opponent will choose Rock (A), and you need the round to end in a draw (Y), so you also choose Rock. This gives you a score of 1 + 3 = 4.\nIn the second round, your opponent will choose Paper (B), and you choose Rock so you lose (X) with a score of 1 + 0 = 1.\nIn the third round, you will defeat your opponent’s Scissors with Rock for a score of 1 + 6 = 7.\n\nNow that you’re correctly decrypting the ultra top secret strategy guide, you would get a total score of 12.\nFollowing the Elf’s instructions for the second column, what would your total score be if everything goes exactly according to your strategy guide?"
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/02/rock-paper-scissors.html#code-1",
+    "href": "posts/Advent of Code 2022/02/rock-paper-scissors.html#code-1",
+    "title": "Advent of Code - Day 2: Rock Paper Scissors",
+    "section": "Code",
+    "text": "Code\n\noutcomes = c(\"lost\", \"draw\", \"win\")\n\nget_round_score_2 <- function(opponent, outcome) {\n\n  if (outcome == 2) {\n    bonus = 3\n    player = opponent\n  } else if(outcome == 1){\n    bonus = 0\n    if (opponent == 1) {\n      player = 3\n    } else {\n      player = opponent - 1\n    }\n  } else if(outcome == 3){\n    bonus = 6\n    if (opponent == 3) {\n      player = 1\n    } else {\n      player = opponent + 1\n    }\n  }\n\n  return(player + bonus)\n  \n}\n\n\ntotal_score_2 <- 0\n\nfor (scenario in strsplit(input, \" \")) {\n  translated <- map_int(scenario, translate)\n  opponent = translated[1]\n  outcome = translated[2]\n  \n  round_score <- get_round_score_2(opponent, outcome)\n  \n  total_score_2 <- total_score_2 + round_score\n  \n}"
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/02/rock-paper-scissors.html#result-1",
+    "href": "posts/Advent of Code 2022/02/rock-paper-scissors.html#result-1",
+    "title": "Advent of Code - Day 2: Rock Paper Scissors",
+    "section": "Result",
+    "text": "Result\nTotal score obtained with the scenarios is 8295."
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/03/roucksack-reorganization.html",
+    "href": "posts/Advent of Code 2022/03/roucksack-reorganization.html",
+    "title": "Advent of Code - Day 3: Rucksack Reorganization",
+    "section": "",
+    "text": "input <- readLines(\"input.txt\")\n\nhead(input, 10)\n\n [1] \"zBBtHnnHtwwHplmlRlzPLCpp\"                        \n [2] \"vvhJccJFGFcNsdNNJbhJsJQplQMRLQMlfdfTPCLfQQCT\"    \n [3] \"GPhjcjhZDjWtnSVH\"                                \n [4] \"BNhHVhrGNVTbDHdDJdJRPJdSQQSJwPjR\"                \n [5] \"lvtsfbsqzwSnJcvjSm\"                              \n [6] \"MftttFLftZMLgtgMbltMqZzbDNrTpVGhNWrDTrpTGNpZGZhD\"\n [7] \"VSSHcTgTtTdtllZlzmmbljTn\"                        \n [8] \"RqMqsFfQLLFLQFMMfRLPZLvPpCfWrbpmCbjCnfjlWmnrmmnm\"\n [9] \"hqRDqPDRsqNHwtHSNBZtJd\"                          \n[10] \"tNFDpDFrtdjfmjjjFmFFdScpZhZScTJgpHccHhMJgS\"      \n\n\n\n\n\n\n\n\n\n\n\n\nfind_common <- function(rucksack){\n  len <- nchar(rucksack)\n  chars <- unlist(strsplit(rucksack, \"\"))\n  first_part <- chars[1:(len/2)]\n  second_part <- chars[(len/2)+1:len]\n  return(intersect(first_part, second_part))\n}\n\nget_priority <- function(item){\n  if(item %in% LETTERS){\n    priority <- 26 + match(item, LETTERS)\n  } else {\n    priority <- match(item, letters)\n  }\n  return(priority)\n}\n\n\nsum_priority <- 0\n\nfor (i in input) {\n  common_item <- find_common(i)\n  priority <- get_priority(common_item)\n  sum_priority <- sum_priority + priority\n}\n\n\n\n\nTotal sum of all priorities is 7597."
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/03/roucksack-reorganization.html#result-1",
+    "href": "posts/Advent of Code 2022/03/roucksack-reorganization.html#result-1",
+    "title": "Advent of Code - Day 3: Rucksack Reorganization",
+    "section": "Result",
+    "text": "Result\nTotal sum of all priorities is 2607."
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/04/camp-cleanup.html",
+    "href": "posts/Advent of Code 2022/04/camp-cleanup.html",
+    "title": "Advent of Code - Day 4: Camp Cleanup",
+    "section": "",
+    "text": "Part 2\n\n# Function to count the number of overlapping pairs\ncount_overlapping_pairs <- function(pairs) {\n  # Initialize a counter variable\n  count <- 0\n\n  # Loop through each pair\n  for (pair in pairs) {\n    # Split the pair into its start and end parts\n    parts <- unlist(strsplit(pair, \",\"))\n    \n    first_elf <- as.numeric(unlist(strsplit(parts[1], \"-\")))\n    second_elf <-  as.numeric(unlist(strsplit(parts[2], \"-\")))\n    \n    first_set <- c(first_elf[1]:first_elf[2])\n    second_set <- c(second_elf[1]:second_elf[2])\n    \n    \n    if (length(intersect(first_set, second_set) > 0)) {\n      count <- count + 1\n    }\n  }\n\n  # Return the count\n  return(count)\n}\n\nresult <- count_overlapping_pairs(input)\n\nThere are a total of 924 partialy overlapping pairs."
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/05/supply-stack.html",
+    "href": "posts/Advent of Code 2022/05/supply-stack.html",
+    "title": "Advent of Code - Day 5: Supply Stacks",
+    "section": "",
+    "text": "input <- readLines(\"input.txt\")\n\nhead(input, 10)\n\n [1] \"        [M]     [B]             [N]\" \"[T]     [H]     [V] [Q]         [H]\"\n [3] \"[Q]     [N]     [H] [W] [T]     [Q]\" \"[V]     [P] [F] [Q] [P] [C]     [R]\"\n [5] \"[C]     [D] [T] [N] [N] [L] [S] [J]\" \"[D] [V] [W] [R] [M] [G] [R] [N] [D]\"\n [7] \"[S] [F] [Q] [Q] [F] [F] [F] [Z] [S]\" \"[N] [M] [F] [D] [R] [C] [W] [T] [M]\"\n [9] \" 1   2   3   4   5   6   7   8   9 \" \"\"                                   \n\n\n\n\n\n\n\nlibrary(tidyverse)\n\n\n\n\n\n# Detect where initial state and procedure are separated\nsep <- which(input == \"\")\n\n# Split initial state of boxes with procedure steps\nboxes <- input[1:(sep-2)]\nprocedure <- input[(sep+1):length(input)] %>% \n  str_extract_all(\"\\\\d+\") %>% \n  map(as.integer)\n\n# Count the number of stack to compute the indexes of the relevant character indexes to catch\nstack_number <- max(str_count(string = boxes,\"\\\\w\"))\nboxes_location <- seq(1,(stack_number*4 - 1), by = 4)+1\n\n# Reconstruct stacks in a list of vectors\nstacks <- \n  map(boxes_location, ~ str_sub(boxes, .x, .x)) %>%\n  map(setdiff, c(\"\", \" \")) %>%\n  map(rev)\n\n\n# Launch the simulation\nfor (step in procedure) {\n    \n  qty <- step[1]\n  from <- step[2]\n  to <- step[3]\n  \n  stacks[[to]] <- c(stacks[[to]], rev(tail(stacks[[from]],qty))) # boxes are \n  # moved (they are reversed since the top ones need to be move before lower ones)\n  \n  stacks[[from]] <- stacks[[from]][1:(length(stacks[[from]])-qty)] # moved boxes \n  # are removed from their original stack\n}\n\n\n# We get the top box (last character of stack vector) for each stack\nresult <- unlist(map(stacks, tail, 1))\n\n\n\n\nThe crates at the top of each stacks are FRDSQRRCD."
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/05/supply-stack.html#code-1",
+    "href": "posts/Advent of Code 2022/05/supply-stack.html#code-1",
+    "title": "Advent of Code - Day 5: Supply Stacks",
+    "section": "Code",
+    "text": "Code\n\nstacks <- \n  map(boxes_location, ~ str_sub(boxes, .x, .x)) %>%\n  map(setdiff, c(\"\", \" \")) %>%\n  map(rev)\n\n# Launch the simulation\nfor (step in procedure) {\n    \n  qty <- step[1]\n  from <- step[2]\n  to <- step[3]\n  \n  stacks[[to]] <- c(stacks[[to]], tail(stacks[[from]],qty)) # boxes are \n  # moved (they are NOT reversed since its the CrateMover 9001)\n  \n  stacks[[from]] <- stacks[[from]][1:(length(stacks[[from]])-qty)] # moved boxes \n  # are removed from their original stack\n}\n\n\n# We get the top box (last character of stack vector) for each stack\nresult <- unlist(map(stacks, tail, 1))"
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/05/supply-stack.html#result-1",
+    "href": "posts/Advent of Code 2022/05/supply-stack.html#result-1",
+    "title": "Advent of Code - Day 5: Supply Stacks",
+    "section": "Result",
+    "text": "Result\nThe crates at the top of each stacks are HRFTQVWNN."
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/06/tuning-trouble.html",
+    "href": "posts/Advent of Code 2022/06/tuning-trouble.html",
+    "title": "Advent of Code - Day 6: Tuning Trouble",
+    "section": "",
+    "text": "input <- readLines(\"input.txt\")\n\nhead(input, 10)\n\n[1] \"qhbhzbzzfrzrbzzcjzjrrvcvrvqvvnggnngcgssswbblplrlflfnnnmmjppgddqndnrnlnccpfcfjcjvjdjqqqmhhmwhwmmsnsvsjvjnvjnvjvsjsmjsjccwcqwcqwqjqwjwmwbmmbzbsbvsslbsbbbntnvvphpqqvrrtbrtrfftppbggpzzfhfcfsfmssffmbmzzmqzzblzzzmwwnggjwgjwgjgpgmmjvvmcvmmcfchfhllwmlljqqldqdqttsgsvscsmsnsmstmtssvgsgddwdffbppwfpplhlchhhdvvdrrmttmptmmmjsmshmmmgqmgggzjgzzmwzwcwhchqqfpfvvbqvbqbrblrrmtmstmmjvmmdnmmzczdzpztppjhjjwzjjjtdjjpljpjcppjllsffhbffbhhgttqjqzzfzbzcbzcbcrrjjrwrgwwbcbpcccctrtqtfqqfjjpgpdgdfgfrggpjjljglgclcqcqmcqmmgjjllpmphpjjgfjjqrrbppwmpmccftctjtjgjtgggzffcggwzzzdjdzzlgzgjzzvqvppczzjnjvvfhhtwtttdwtdtvddpzpnpcnppmvmcmcsmstthctchcggtssdttvztvvldlfftqqbzzjttvzztppscctzccgmcmvmhhchcscbbshbssgwwthwhmwwcgwcwrrvrzvrzzzvhvdvmmprrdmrmfmrmbmjbbmqbmbqqhbbszsjjlqjljtjstshhgphpffdhhtggtgbbqcqgqccfffcpcbpbfppwqpqcclbbwdwsscpchhfpfmpfmflfnnmggwrrznnghgvhhghrrhwrrcschcscqcmcfcvvgzztjtqjjshspsqsmmjnnmttsshvhmmqfqzztbzttvhttmwttnqnfncfcpfflmllmtlmmphmhlmmltmtztcczhzbbfmmlglnnfpppqplljwjfwfdwdzwddszddqzqnzzzwwlzzqvvjlllrwlrrmpmrmbmpplpspqsqmqcmcjjshsvstvvwtvthvvrfvvqmmjpmjmrjmmlvvnnrjjrcrwrhwwqzzvgvngncgcqqcffmfzfssbnbfblbggwhggmtgtvvqhhpttbcbczcjjbqbhqbhqbbccbhbqhbbmppdlpdllbvvdpvdvwvsvppllgblbttmcmtccbsswmswwwzfwfhhtfhthctchcfhhhfjjvhjhgjjjcwjwggrtgrttcqcwcswccfdffvpvtptprrvjjqvjjghggshhwmmcscmsmhmvmppprfrwwrhhvghhtnhncctbbbwzzbgzgdzgdzdpdvpvbbwgbwwrqwrqwqbqvvclccfcfzfdfrrthrrqcqddplpqlppbbfrfmmrmnnwhhgddmwwrzrsswpwhwdwhhsmhshqsqllbvlbllwbwbpwwfwmwsmspsvsdsbscctpctppvvpggtjjdmdqqgqbgglccvzcvcnczcgzgmzznpzzpcpnpvpcvvffrttqrqttflfbfjfnnwnlwlhwwqzqnqfftstdsttglldwwgqwwvqqzczfzdffbfsfssfwswdwnwdnnbcncwctttvsvjsvsrvvbtvvzhhvjvtvtjtsjjvhjjwpjjnzzpczzppgcpgcpgcgsgvsgvsscrcpcpspllzvzddpssssdpsddhffllzmzhzfhhdvhhvbvwwpwqpwqpwwmvwmvwvgvmvpvmpmrmzrrblltjtggvnggvppthhzjhzhffrvrhvrhrlrslsflfhhtvhvmmhppjgpjpcccmqcqvqhvvfssrtmnwjjslwhjgpvrwspjlwdwrmvfgwmplrmjrllndrjzvjfbwvzpjpfqrnjspwcpsgcvdlmfdfrvwdcvmbrnzncgnqlcvgqtpsbbpvprncdsgvpqbpcnffwqmmfsvnzspchhrlnzbhcdfdgtsllmqfbrcqwbmmzrfvsghjpmrndsdbqvtprmblnbvbnpvhtphbpjwdssvwgdzwztbpzdcsqzldjzrgcwhhspblrtncvntppcgttlflflnntcnzpbpgsclcjvbjhldcdzwjjhnfwzjmgcwtljhvbncwqnjhbrhfqcmnsdvntsbgnpqttzvbhzzpdznrhjpnsqzsztsblstbghlpwbmqjctlnqnttwshfvmjdhgbgjdhbzrfjqndrrhlqcmplczjtwpstlsmwwzqzmgvhsvjgbrtfwmvwlbhpccbqvmfmlgmbmbmldbcwmmhpnnbnffbnqgwhclgpzgbpjqvzmqhhhpltnwrdfrrnmlfrzflpnjztlnfzzzgmncprtblpsvrqgrnzbzfzhzhjjjdrnpvjpnwmlmlgvvtqmdvpnhvcrdmthcnnnvhnzmvgrtdvcthgjtvcgmtpsvmfztrflrrzbmcfhftwwcnjfpjtsnzjccmvdnrrwvbfjgcjttdvzncqhlqqphwphclztbhlqcfmnhcjmsscplnrsjqpdzrrzbthbcdnrzgdmstpgqqsvzclvmzjjdfqhhhttwcjtmwcbltghmslqvltqbjqqjpjvgntvnlttjcnhltflglgsmjwjjfldpfgjgrhttbwfhpsdbsmsfmfbtjlnhvjfqjrqhwdrcwpfthdgqzjjjfcvgdffrhvvwzfghpszmjjgscjvjnlgnbfbgfrbbzbzbnzngthrddfmsgsqqdddpfqwlchfblrvjdcgnzfzwmmnmvnzmpfmhbbhsbfdfclzcnbrlgpbsvfgfpshrpvpgccmmghphrcvzwnlqjcfwrtwvlvcsdldldvnpwgrcsqlftllcctnvcwbdswvqlzwzzbpmvvctcrgnjfstbqvnzczrjlljfqzrwtfwmlvvdfbfntrrljtbrtbdfsqpnppfbppbsmghbnqddhrvwmgzttnqjrqlfrdhqjndmnjlbctgclltmznmrqtfjsjwnztdvhnhlfwpnnqlhhsrfzglsnrdnfvrqssbtlthzfnjdvrcgzsbnpdgqhhrlwspfqfqpvzdfwgrlhwplzvbzprsqzcwvhggvzpgjztnvwvddsflgsvqljmmhhdzqsqmthwzvllqwmsnvdpdbjcgdtrsnmwhnzhbhgjssstmhrpssnhnntmrbbbjgmjqtncbdljcgtmbctpgdrnqcnrpssrdtpbsmlzlcztbrggglswnjzqgbsmgbqdzppqrwgtnlrjrvlpnqlcdwhltzzlqdwwrglldzcqrjtjtlgdqrtwzjgtdthsdccsmsrbjjsgdqcwdltvnjwtddsnpnsvzcdbfqnvsjbngqrztmbrnbvhhjzdtqrgldpvjqjpnshbjdsdgbjdjzdmrvzhwmtgcjrfnprstqgfgnwfpcjzhlnwpdbtqbspssqdrzhmmsrqtlwngvbrvgdgztnrlwcnqwvcdmhhdrmpfqbgbjpvzwbsbgcpsnpjplcrjdhflqvsdctclqqnmprngtvbmlmpqrsqdsrzgsmzmsczpsnmfmtfnjvnddjhqbjdvtgftjfvjhgpjqdhlszqjmcbnwrppzwjvmgblspjmfhjdbnmrllnfqlpcbndvqdzhhmmrpsljgdshpnrgnmwfjsdncqcwlctccrqghfdbsqqbnwctcqpvlrqqqvdjwlcnzmvdmcvlwnftjnqqldfwhmdtcpnlgfcdjdrfvmwqdzsjzctmmmrswhlwthttvcsqqscdcsmjgqfjhswlpsfjrppdmbwrthcwszqwwgnjsdqdrswmnzbrvqcwlrlwwvjmrrhsnzprggbzhhdqwvnspsmzzqdtbphzvwrzvqnbntjndrwllzwchczdwvnfjjdwfhdlgncftldzwdtjzjrmnfwwgmqdrltmgrfsjztfcvwjsggtvbnsvthflwfdtljrgqhmfqhmhfffqhtgwtlmwgzsglqnfwnrnvgvbdgqjrqtsmgsmzdpffnnzwlpbqphqmgdzspfrdqlptwmfwlgnqqdhtbbjtfhllrhhdcszjtmrprzhzzlgjqbcnhzcmhzrsnmmrzztffrldthhfvwhgjhwmjfbdvnllfmlpdsldjnpcwlpbwqzdwbgjb\"\n\n\n\n\n\n\nget_marker_index <- function(characters, marker_length) {\n  for (i in seq_along(characters[1:(length(characters)-marker_length)])) {\n    set <- unique(characters[i:(i+marker_length-1)])\n    if (length(set) == marker_length) {\n      return(i+marker_length-1) \n      break\n    }\n  }\n}\n\n\ncharacters <- unlist(strsplit(input, \"\"))\n\nresult <- get_marker_index(characters, marker_length = 4)\n\n\n\n\nThe number of characters that were processed before first start-of-message marker is 1802."
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/06/tuning-trouble.html#code-1",
+    "href": "posts/Advent of Code 2022/06/tuning-trouble.html#code-1",
+    "title": "Advent of Code - Day 6: Tuning Trouble",
+    "section": "Code",
+    "text": "Code\n\ncharacters <- unlist(strsplit(input, \"\"))\n\nresult <- get_marker_index(characters, marker_length = 14)"
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/06/tuning-trouble.html#result-1",
+    "href": "posts/Advent of Code 2022/06/tuning-trouble.html#result-1",
+    "title": "Advent of Code - Day 6: Tuning Trouble",
+    "section": "Result",
+    "text": "Result\nThe number of characters that were processed before first start-of-message marker is 3551."
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/08/tree-top-treehouse.html",
+    "href": "posts/Advent of Code 2022/08/tree-top-treehouse.html",
+    "title": "Advent of Code - Day 8: Treetop Tree House",
+    "section": "",
+    "text": "library(readr)\n\n\n\n\ninput <-   as.matrix(read_fwf(\"input.txt\",fwf_widths(widths = rep(1,99))))"
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/08/tree-top-treehouse.html#code",
+    "href": "posts/Advent of Code 2022/08/tree-top-treehouse.html#code",
+    "title": "Advent of Code - Day 8: Treetop Tree House",
+    "section": "Code",
+    "text": "Code\n\nis_visible <- function(x){\n  results <- vector(mode = \"logical\", length = length(x))\n  \n  for (i in seq_along(x)) {\n    if(i == 1 || i == length(x)){\n      results[i] <- TRUE\n    } else if (all(x[i] > x[1:i-1]) || all(x[i] > x[(i+1):length(x)])) {\n      results[i] <- TRUE\n    } else {\n      results[i] <- FALSE\n    }\n  }\n  results\n  \n}\n\nsum(t(apply(input, 1, is_visible)) | apply(input, 2, is_visible))\n\n[1] 1840"
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/09/rope-bridge.html",
+    "href": "posts/Advent of Code 2022/09/rope-bridge.html",
+    "title": "Advent of Code - Day 9: Rope Bridge",
+    "section": "",
+    "text": "sample <-   readLines(\"sample.txt\")\n\n\ninput <- readLines(\"input.txt\")\n\nhead(input, 10)\n\n [1] \"U 2\" \"D 2\" \"R 2\" \"U 2\" \"D 1\" \"L 2\" \"R 2\" \"D 1\" \"R 2\" \"D 1\""
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/09/rope-bridge.html#code",
+    "href": "posts/Advent of Code 2022/09/rope-bridge.html#code",
+    "title": "Advent of Code - Day 9: Rope Bridge",
+    "section": "Code",
+    "text": "Code\n\nmove_knot <- function(head_coord, knot_coord) {\n  \n  # if the head and tail aren't touching and aren't in the same row or column\n  if (abs(head_coord$x - knot_coord$x) >  1 | abs(head_coord$y - knot_coord$y) > 1) {\n    available_coord <- list(\n      list(x = knot_coord$x + 1, y = knot_coord$y),\n      list(x = knot_coord$x + 1, y = knot_coord$y + 1),\n      list(x = knot_coord$x + 1, y = knot_coord$y - 1),\n      list(x = knot_coord$x - 1, y = knot_coord$y),\n      list(x = knot_coord$x - 1, y = knot_coord$y + 1),\n      list(x = knot_coord$x - 1, y = knot_coord$y - 1),\n      list(x = knot_coord$x, y = knot_coord$y + 1),\n      list(x = knot_coord$x, y = knot_coord$y - 1),\n      list(x = knot_coord$x, y = knot_coord$y)\n    )\n    \n    # Coordinate difference are computed between head and all possible future\n    # knot position\n    coord_diff <- unlist(\n      purrr::map(available_coord,\n                 ~ abs(.x$x - head_coord$x) + abs(.x$y - head_coord$y)))\n    \n    \n    # new knot coordinate is the one with lowest difference\n    knot_coord <- available_coord[[which(coord_diff == min(coord_diff))]]\n  }\n  return(knot_coord)\n}\n\n\nhead_coord <- list(x=0,y=0)\ntail_coord <- list(x=0,y=0)\n\nvisited_coord <- c()\n\nfor (move in input) {\n  \n  move_vec <- unlist(strsplit(move, \" \"))\n  \n  direction <- move_vec[1]\n  distance <- move_vec[2]\n  \n  for (d in 1:distance) {\n    # message(d)\n    if (direction == \"R\") {\n      head_coord$x <- head_coord$x + 1\n    } else if (direction == \"L\"){\n      head_coord$x = head_coord$x - 1\n    } else if (direction == \"U\") {\n      head_coord$y = head_coord$y + 1\n    } else if (direction == \"D\") {\n      head_coord$y = head_coord$y - 1\n    }\n    \n    tail_coord <- move_knot(head_coord = head_coord, knot_coord = tail_coord)\n    \n    visited_coord <- c(visited_coord, paste(tail_coord$x, tail_coord$y, sep =  \";\"))\n  }\n}"
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/09/rope-bridge.html#result",
+    "href": "posts/Advent of Code 2022/09/rope-bridge.html#result",
+    "title": "Advent of Code - Day 9: Rope Bridge",
+    "section": "Result",
+    "text": "Result\n\nlength(unique(visited_coord))\n\n[1] 6337"
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/09/rope-bridge.html#result-1",
+    "href": "posts/Advent of Code 2022/09/rope-bridge.html#result-1",
+    "title": "Advent of Code - Day 9: Rope Bridge",
+    "section": "Result",
+    "text": "Result\n\nlength(unique(visited_coord))\n\n[1] 2455"
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/10/cathode-ray-tube.html",
+    "href": "posts/Advent of Code 2022/10/cathode-ray-tube.html",
+    "title": "Advent of Code - Day 10: Cathode-Ray Tube",
+    "section": "",
+    "text": "library(tidyr)\nlibrary(dplyr)\nlibrary(readr)\nlibrary(stringr)"
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/10/cathode-ray-tube.html#input",
+    "href": "posts/Advent of Code 2022/10/cathode-ray-tube.html#input",
+    "title": "Advent of Code - Day 10: Cathode-Ray Tube",
+    "section": "Input",
+    "text": "Input\n\nsample <-\"input.txt\""
+  },
+  {
+    "objectID": "posts/Advent of Code 2022/10/cathode-ray-tube.html#code",
+    "href": "posts/Advent of Code 2022/10/cathode-ray-tube.html#code",
+    "title": "Advent of Code - Day 10: Cathode-Ray Tube",
+    "section": "Code",
+    "text": "Code\n\ninput <- read_delim(file = sample, delim =  \" \",col_names = c(\"name\",\"value\")) %>%\n  replace_na(replace = list(value = 0))\n\nresult <- \n  input %>%\n  mutate(cycle = cumsum(case_when(name == \"addx\" ~2,\n                             TRUE ~ 1)),\n         register = 1 + lag(cumsum(value),1)) %>%\n  complete(cycle = 1:240) %>%\n  fill(register,.direction = \"up\") %>%\n    mutate(signal = cycle * register)\n\n\n result %>%\n  filter(cycle %in% seq(20, 220, by=40)) %>%\n  summarise(sum(signal))\n\n\n\n  \n\n\n\n\nresult %>%\n  mutate(row = (cycle -1) %/% 40,\n         col = (cycle -1) %% 40,\n         pixel = ifelse(col >= register -1 & col <= register +1,\"#\",\".\")) %>%\n  group_by(row) %>%\n  summarise(paste0(pixel, collapse=\"\"))"
+  },
+  {
+    "objectID": "software.html",
+    "href": "software.html",
+    "title": "Software",
+    "section": "",
+    "text": "{ospsuite}\nProvides the functionality of loading, manipulating, and simulating the simulations created in the Open Systems Pharmacology Software tools PK-Sim and MoBi.\n\n\n{TLF}\nProvides an object-oriented framework to create tables and figures, which are used by R packages in the Open Systems Pharmacology ecosystem\n\n\n{RollR}\nProvides a simple way to make all sorts of dice rolls using syntax inspired from tabletop roleplaying games like Dungeons & Dragons."
+  }
+]
