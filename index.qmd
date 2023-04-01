@@ -1,7 +1,6 @@
 ---
 title: "Felix MIL"
 description: "Datavisualization, software development, web application using R"
-freeze: auto
 about:
   template: jolla
   image: assets/me.jpg

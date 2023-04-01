@@ -1,6 +1,5 @@
 ---
 title: "About Me"
-freeze: auto
 about:
   template: jolla
   image: assets/me.jpg
