@@ -7,11 +7,18 @@
     "text": "About this blog"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome",
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
     "section": "",
     "text": "Fifth day of the advent of code using R\n\n\n\n\n\n\nDec 5, 2022\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFourth day of the advent of code using R\n\n\n\n\n\n\nDec 4, 2022\n\n\n0 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThird day of the advent of code using R\n\n\n\n\n\n\nDec 3, 2022\n\n\n0 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSecond day of the advent of code using R\n\n\n\n\n\n\nDec 2, 2022\n\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFirst day of the advent of code using R\n\n\n\n\n\n\nDec 1, 2022\n\n\n3 min\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Felix MIL",
+    "section": "",
+    "text": "I previously worked as a data scientist in Stago, a company that design, sell and distribute hemostasis analyzers and was in charge of supporting R&D efforts using data.\nMore in the about section."
   },
   {
     "objectID": "posts/Advent of Code 2022/01/Calorie-Counting.html",
@@ -82,5 +89,12 @@
     "title": "Advent of Code - Day 5: Supply Stacks",
     "section": "",
     "text": "input <- readLines(\"input.txt\")\n\nhead(input, 10)\n\n [1] \"        [M]     [B]             [N]\" \"[T]     [H]     [V] [Q]         [H]\"\n [3] \"[Q]     [N]     [H] [W] [T]     [Q]\" \"[V]     [P] [F] [Q] [P] [C]     [R]\"\n [5] \"[C]     [D] [T] [N] [N] [L] [S] [J]\" \"[D] [V] [W] [R] [M] [G] [R] [N] [D]\"\n [7] \"[S] [F] [Q] [Q] [F] [F] [F] [Z] [S]\" \"[N] [M] [F] [D] [R] [C] [W] [T] [M]\"\n [9] \" 1   2   3   4   5   6   7   8   9 \" \"\"                                   \n\n\n\n\n\n\n\nlibrary(tidyverse)\n\n\n\n\n\n# Detect where initial state and procedure are separated\nsep <- which(input == \"\")\n\n# Split initial state of boxes with procedure steps\nboxes <- input[1:(sep-2)]\nprocedure <- input[(sep+1):length(input)] %>% \n  str_extract_all(\"\\\\d+\") %>% \n  map(as.integer)\n\n# Count the number of stack to compute the indexes of the relevant character indexes to catch\nstack_number <- max(str_count(string = boxes,\"\\\\w\"))\nboxes_location <- seq(1,(stack_number*4 - 1), by = 4)+1\n\n# Reconstruct stacks in a list of vectors\nstacks <- \n  map(boxes_location, ~ str_sub(boxes, .x, .x)) %>%\n  map(setdiff, c(\"\", \" \")) %>%\n  map(rev)\n\n\n# Launch the simulation\nfor (step in procedure) {\n    \n  qty <- step[1]\n  from <- step[2]\n  to <- step[3]\n  \n  stacks[[to]] <- c(stacks[[to]], rev(tail(stacks[[from]],qty))) # boxes are \n  # moved (they are reversed since the top ones need to be move before lower ones)\n  \n  stacks[[from]] <- stacks[[from]][1:(length(stacks[[from]])-qty)] # moved boxes \n  # are removed from their original stack\n}\n\n\n# We get the top box (last character of stack vector) for each stack\nresult <- unlist(map(stacks, tail, 1))\n\n\n\n\nThe crates at the top of each stacks are FRDSQRRCD."
+  },
+  {
+    "objectID": "software.html",
+    "href": "software.html",
+    "title": "Software",
+    "section": "",
+    "text": "{ospsuite}\nProvides the functionality of loading, manipulating, and simulating the simulations created in the Open Systems Pharmacology Software tools PK-Sim and MoBi.\n\n\n{TLF}\nProvides an object-oriented framework to create tables and figures, which are used by R packages in the Open Systems Pharmacology ecosystem\n\n\n{RollR}\nProvides a simple way to make all sorts of dice rolls using syntax inspired from tabletop roleplaying games like Dungeons & Dragons."
   }
 ]

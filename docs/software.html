@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Felix MIL - About</title>
+<title>Felix MIL - Software</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,6 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
@@ -82,10 +83,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./blog.html">Blog</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./software.html">Software</a>
+    <a class="nav-link active" href="./software.html" aria-current="page">Software</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page">About</a>
+    <a class="nav-link" href="./about.html">About</a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://twitter.com/felix_mil_"><i class="bi bi-twitter" role="img">
@@ -124,35 +125,44 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<div class="quarto-about-jolla">
- <header id="title-block-header" class="quarto-title-block default">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Software</h1>
 </div>
+
+
+
 <div class="quarto-title-meta">
+
+    
+    
   </div>
-</header><main class="content" id="quarto-document-content">
-<p>About this blog</p>
+  
+
+</header>
+
+<section id="esqlabsr" class="level1">
+<h1><a href="https://github.com/esqLABS/esqlabsR"><code>{esqlabsR}</code></a></h1>
+<p>Designed to facilitate and standardize modeling and simulation (M&amp;S) of PBPK and QSP models implemented in Open Systems Pharmacology Software (OSPS) and executed from R. The package provides functions to read and run scenarios, workflows, and simulations. Furthermore, it creates visualizations based on non-code input from Excel files. The package is based on R functions in the ospsuite R package.</p>
+</section>
+<section id="ospsuite" class="level1">
+<h1><a href="https://github.com/Open-Systems-Pharmacology/OSPSuite-R"><code>{ospsuite}</code></a></h1>
+<p>Provides the functionality of loading, manipulating, and simulating the simulations created in the Open Systems Pharmacology Software tools PK-Sim and MoBi.</p>
+</section>
+<section id="tlf" class="level1">
+<h1><a href="https://github.com/Open-Systems-Pharmacology/TLF-Library"><code>{TLF}</code></a></h1>
+<p>Provides an object-oriented framework to create tables and figures, which are used by R packages in the Open Systems Pharmacology ecosystem</p>
+</section>
+<section id="rollr" class="level1">
+<h1><a href="https://github.com/Felixmil/rollR"><code>{RollR</code>}</a></h1>
+<p>Provides a simple way to make all sorts of dice rolls using syntax inspired from tabletop roleplaying games like Dungeons &amp; Dragons.</p>
 
 
-</main> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="https://twitter.com/felix_mil_" class="about-link">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">Twitter</span>
-  </a>
-  <a href="https://www.linkedin.com/in/felix-mil/" class="about-link">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com/felixmil" class="about-link">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-</div>
-</div>
- <!-- /main -->
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -173,6 +183,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const clipboard = new window.ClipboardJS('.code-copy-button', {
     target: function(trigger) {
       return trigger.previousElementSibling;
