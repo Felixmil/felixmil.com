@@ -32,7 +32,7 @@ I previously worked as a data scientist in Stago, a company that design, sell an
 
 Below are the main milestones I passed during my journey toward a DataScience carreer.
 
-```{r,echo=F, warning=F, message=F,fig.asp=1.618,fig.align='center',fig.width=7}
+```{r timeline,echo=F, warning=F, message=F,fig.asp=1.618,fig.align='center',fig.width=7}
 # Milestones lists
 data_raw <- c('
   - 2019-07-09: Attended useR2019 in Toulouse
