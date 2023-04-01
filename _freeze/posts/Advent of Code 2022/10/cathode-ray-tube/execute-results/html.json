@@ -1,14 +1,16 @@
 {
-  "hash": "c8c516ddca76ea567a5b8b69f2418238",
+  "hash": "fbe7ce372750cf1103ca6b9da0583206",
   "result": {
     "markdown": "---\ntitle: \"Advent of Code - Day 10: Cathode-Ray Tube\"\nsubtitle: \"10h day of the advent of code using R\"\ndate: 2022-12-10\ncategories: \"advent of code\"\nformat: \n   html:\n     df-print: paged\neditor: \n  markdown: \n    wrap: 80\neditor_options: \n  chunk_output_type: inline\n---\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyr)\nlibrary(dplyr)\nlibrary(readr)\nlibrary(stringr)\n```\n:::\n\n\n# Part 1\n\n## Input\n\n\n::: {.cell}\n\n```{.r .cell-code}\nsample <-\"input.txt\"\n```\n:::\n\n\n## Code\n\n\n::: {.cell}\n\n```{.r .cell-code}\ninput <- read_delim(file = sample, delim =  \" \",col_names = c(\"name\",\"value\")) %>%\n  replace_na(replace = list(value = 0))\n\nresult <- \n  input %>%\n  mutate(cycle = cumsum(case_when(name == \"addx\" ~2,\n                             TRUE ~ 1)),\n         register = 1 + lag(cumsum(value),1)) %>%\n  complete(cycle = 1:240) %>%\n  fill(register,.direction = \"up\") %>%\n    mutate(signal = cycle * register)\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\n result %>%\n  filter(cycle %in% seq(20, 220, by=40)) %>%\n  summarise(sum(signal))\n```\n\n::: {.cell-output-display}\n`````{=html}\n<div data-pagedtable=\"false\">\n  <script data-pagedtable-source type=\"application/json\">\n{\"columns\":[{\"label\":[\"sum(signal)\"],\"name\":[1],\"type\":[\"dbl\"],\"align\":[\"right\"]}],\"data\":[{\"1\":\"14560\"}],\"options\":{\"columns\":{\"min\":{},\"max\":[10]},\"rows\":{\"min\":[10],\"max\":[10]},\"pages\":{}}}\n  </script>\n</div>\n`````\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nresult %>%\n  mutate(row = (cycle -1) %/% 40,\n         col = (cycle -1) %% 40,\n         pixel = ifelse(col >= register -1 & col <= register +1,\"#\",\".\")) %>%\n  group_by(row) %>%\n  summarise(paste0(pixel, collapse=\"\"))\n```\n\n::: {.cell-output-display}\n`````{=html}\n<div data-pagedtable=\"false\">\n  <script data-pagedtable-source type=\"application/json\">\n{\"columns\":[{\"label\":[\"row\"],\"name\":[1],\"type\":[\"dbl\"],\"align\":[\"right\"]},{\"label\":[\"paste0(pixel, collapse = \\\"\\\")\"],\"name\":[2],\"type\":[\"chr\"],\"align\":[\"left\"]}],\"data\":[{\"1\":\"0\",\"2\":\".###.#..#.###..#..#.####.###..#..#.####.\"},{\"1\":\"1\",\"2\":\"#....#.#..#..#.#..#.#....#..#.#..#....#.\"},{\"1\":\"2\",\"2\":\"###..##...#..#.####.###..#..#.#..#...#..\"},{\"1\":\"3\",\"2\":\"#....#.#..###..#..#.#....###..#..#..#...\"},{\"1\":\"4\",\"2\":\"#....#.#..#.#..#..#.#....#....#..#.#....\"},{\"1\":\"5\",\"2\":\"####.#..#.#..#.#..#.####.#.....##..####.\"}],\"options\":{\"columns\":{\"min\":{},\"max\":[10]},\"rows\":{\"min\":[10],\"max\":[10]},\"pages\":{}}}\n  </script>\n</div>\n`````\n:::\n:::\n",
-    "supporting": [],
+    "supporting": [
+      "cathode-ray-tube_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],
     "includes": {
       "include-in-header": [
-        "<link href=\"../../../site_libs/pagedtable-1.1/css/pagedtable.css\" rel=\"stylesheet\" />\n<script src=\"../../../site_libs/pagedtable-1.1/js/pagedtable.js\"></script>\n"
+        "<link href=\"../../../site_libs/pagedtable-1.1/css/pagedtable.css\" rel=\"stylesheet\" />\r\n<script src=\"../../../site_libs/pagedtable-1.1/js/pagedtable.js\"></script>\r\n"
       ]
     },
     "engineDependencies": {},
