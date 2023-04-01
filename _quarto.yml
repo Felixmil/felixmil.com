@@ -1,6 +1,5 @@
 project:
   type: website
-  output-dir: docs
 
 website:
   title: "Felix MIL"
@@ -25,6 +24,5 @@ format:
     theme: cosmo
     css: styles.css
     
-    
 execute:
-  freeze: auto  # re-render only when source changes
+  freeze: auto
