@@ -69,4 +69,40 @@ for (i in input) {
 
 ## Result
 
-Total sum of all priorities is **`r format(7597, scientific=F)`**.
+Total sum of all priorities is **`r format(sum_priority, scientific=F)`**.
+
+# Part 2
+
+```{r}
+find_identifier <- function(rucksacks) {
+  
+  rucksacks_content <- list(unlist(strsplit(rucksacks[[1]], "")),
+                            unlist(strsplit(rucksacks[[2]], "")),
+                            unlist(strsplit(rucksacks[[3]], "")))
+  identifier <- purrr::reduce(rucksacks_content, intersect)
+  
+  
+  
+  return(identifier)
+  
+}
+
+total_priority <- 0
+
+for (i in seq(1,length(input), by = 3)) {
+  rucksacks <- list(input[i],
+                    input[i+1],
+                    input[i+2])
+  
+  identifier <- find_identifier(rucksacks)
+  priority <- get_priority(identifier)
+  total_priority <- total_priority + priority
+}
+
+total_priority
+```
+
+## Result
+
+Total sum of all priorities is **`r format(total_priority, scientific=F)`**.
+

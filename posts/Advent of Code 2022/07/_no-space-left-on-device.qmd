@@ -1,0 +1,149 @@
+---
+title: "Advent of Code - Day 7: Tuning Trouble"
+subtitle: "Seventh day of the advent of code using R"
+date: 2022-12-07
+categories: "advent of code"
+draft: true
+
+format: 
+   html:
+     df-print: paged
+editor: 
+  markdown: 
+    wrap: 80
+    
+
+execute: 
+  error: true
+---
+
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(
+  comment = '',
+  message = F, 
+  warning = F
+)
+```
+
+
+# Part
+
+
+## Input
+
+
+```{r}
+sample <-   readLines("sample.txt")
+
+sample
+```
+
+
+```{r}
+input <- readLines("input.txt")
+
+head(input, 10)
+```
+
+
+```{r}
+library(stringr)
+library(fs)
+```
+
+
+## Code
+
+
+```{r}
+
+# input <- sample
+
+parse_terminal <- function(input) {
+  
+  i = 3
+  path = c("/")
+  filesystem <- list("/" = list())
+  
+  message("starting")
+  
+  while (i <= length(input)) {
+    if (str_detect(input[i], "\\$")) {
+      if (str_detect(input[i], "cd")) {
+        if (str_detect(input[i], "\\.\\.")) {
+          path <-  path[1:(length(path)-1)]
+          message("moving outside:", path)
+        } else {
+          dir_name <- str_extract(input[i], "\\w+$")
+          path <-  c(path,  paste0(dir_name, "/"))
+          message("moving inside:", path)
+        }
+        
+      }
+    } else {
+      if (str_detect(input[i], "^dir")) {
+        dir_name <- str_extract(input[i], "\\w+$")
+        filesystem[[path]][[paste0(dir_name,"/")]] <- list()
+      } else {
+        file_name <- str_extract(input[i], "\\w+(\\.\\w+)?$")
+        file_size <- as.numeric(str_extract(input[i], "^\\d+"))
+        filesystem[[path]][[file_name]] <- file_size
+      }
+      
+    }
+    i <- i+1
+  }
+  
+  return(filesystem)
+}
+
+
+```
+
+```{r}
+filesystem <- parse_terminal(sample)
+```
+
+```{r}
+library(purrr)
+
+get_dir_size <- function(dir) {
+
+  # browser()
+  dir_size <- 0
+  
+  for (e in dir) {
+    if (is.list(e)) {
+      subdir_size <- get_dir_size(e)
+      dir_size <- dir_size + subdir_size
+    } else {
+      dir_size <- dir_size + e
+    }
+  }
+  
+  if (dir_size < 100000) {
+    print(names(dir)[1])
+    print(dir_size)
+    return(dir_size)
+  } else {
+    return(0)
+  }
+
+}
+
+reduce(filesystem, get_dir_size)
+
+```
+
+
+
+## Result
+
+
+
+# Part 2
+
+## Code
+
+
+## Result

@@ -83,7 +83,40 @@ result <- unlist(map(stacks, tail, 1))
 
 ```
 
+## Result
 
+The crates at the top of each stacks are  **`r  paste(result, collapse = "")`**.
+
+# Part 2
+
+## Code
+
+```{r}
+
+stacks <- 
+  map(boxes_location, ~ str_sub(boxes, .x, .x)) %>%
+  map(setdiff, c("", " ")) %>%
+  map(rev)
+
+# Launch the simulation
+for (step in procedure) {
+    
+  qty <- step[1]
+  from <- step[2]
+  to <- step[3]
+  
+  stacks[[to]] <- c(stacks[[to]], tail(stacks[[from]],qty)) # boxes are 
+  # moved (they are NOT reversed since its the CrateMover 9001)
+  
+  stacks[[from]] <- stacks[[from]][1:(length(stacks[[from]])-qty)] # moved boxes 
+  # are removed from their original stack
+}
+
+
+# We get the top box (last character of stack vector) for each stack
+result <- unlist(map(stacks, tail, 1))
+
+```
 
 ## Result
 

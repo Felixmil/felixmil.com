@@ -67,4 +67,41 @@ result <- count_overlapping_pairs(input)
 
 ## Result
 
-There are a total of **`r format(result, scientific=F)`** overlapping pairs.
+There are a total of **`r format(result, scientific=F)`** fully overlapping pairs.
+
+
+# Part 2
+
+```{r}
+# Function to count the number of overlapping pairs
+count_overlapping_pairs <- function(pairs) {
+  # Initialize a counter variable
+  count <- 0
+
+  # Loop through each pair
+  for (pair in pairs) {
+    # Split the pair into its start and end parts
+    parts <- unlist(strsplit(pair, ","))
+    
+    first_elf <- as.numeric(unlist(strsplit(parts[1], "-")))
+    second_elf <-  as.numeric(unlist(strsplit(parts[2], "-")))
+    
+    first_set <- c(first_elf[1]:first_elf[2])
+    second_set <- c(second_elf[1]:second_elf[2])
+    
+    
+    if (length(intersect(first_set, second_set) > 0)) {
+      count <- count + 1
+    }
+  }
+
+  # Return the count
+  return(count)
+}
+
+result <- count_overlapping_pairs(input)
+```
+
+
+There are a total of **`r format(result, scientific=F)`** partialy overlapping pairs.
+
