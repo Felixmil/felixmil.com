@@ -11,7 +11,7 @@ about:
       - icon: linkedin
         href: https://www.linkedin.com/in/felix-mil/
       - icon: github
-        href: https://github.com/Felixmil/felixmil.github.io
+        href: https://github.com/Felixmil/
       - icon: envelope-fill
         href: mailto:felix.mil.dev@gmail.com
 ---
