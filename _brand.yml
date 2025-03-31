@@ -1,0 +1,102 @@
+color:
+  palette:
+    black: "#000000"      # Pure black
+    off-black: "#121212"  # Almost black for text
+    dark-gray: "#333333"  # Dark gray for secondary text
+    mid-gray: "#767676"   # Medium gray for accents
+    light-gray: "#E0E0E0" # Light gray for borders
+    off-white: "#F8F8F8"  # Off-white for backgrounds
+    white: "#FFFFFF"      # Pure white
+  background: white
+  foreground: off-black
+  primary: black
+  secondary: dark-gray
+
+#logo:
+#  medium: logo.png          # Replace with your actual logo file
+
+typography:
+  fonts:
+    - family: "Inter"
+      source: google
+    - family: "IBM Plex Sans"
+      source: google
+    - family: "Fira Code"
+      source: google
+  base:
+    family: IBM Plex Sans
+    size: "1rem"
+    weight: 400
+    line-height: 1.6
+  headings:
+    family: Inter
+    weight: 600
+    line-height: 1.2
+    color: black
+  monospace:
+    family: Fira Code
+    size: 0.9rem
+  monospace-inline:
+    family: Fira Code
+    size: 0.85rem
+    background-color: light-gray
+  monospace-block:
+    family: Fira Code
+    size: 0.85rem
+    line-height: 1.5
+  link:
+    color: off-black
+    decoration: underline
+
+defaults:
+  bootstrap:
+    defaults:
+      link-hover-decoration: underline
+      link-hover-color: black
+      border-radius: "0px"
+      btn-border-radius: "0px"
+    rules: |
+      body {
+        letter-spacing: 0.01rem;
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        letter-spacing: -0.02em;
+      }
+      
+      h2 {
+        border-bottom: 1px solid $brand-light-gray;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+        margin-top: 2.5rem;
+      }
+      
+      a:hover {
+        transition: all 0.2s ease;
+      }
+      
+      .navbar {
+        border-bottom: 1px solid $brand-light-gray;
+        box-shadow: none;
+      }
+      
+      .callout {
+        border-left-width: 2px;
+        border-radius: 0;
+        background-color: $brand-off-white;
+      }
+      
+      pre {
+        border: 1px solid $brand-light-gray;
+        border-radius: 0;
+      }
+      
+      blockquote {
+        border-left: 3px solid $brand-black;
+        font-style: italic;
+        padding-left: 1.5rem;
+      }
+
+meta:
+  name: "Felix MIL"
+  link: "https://felixmil.com" 

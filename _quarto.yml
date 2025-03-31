@@ -14,7 +14,7 @@ website:
 
 format:
   html:
-    theme: litera
+    theme: [brand]
     css: styles.css
     
 execute:
