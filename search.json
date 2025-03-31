@@ -7,13 +7,6 @@
     "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
     "objectID": "now.html",
     "href": "now.html",
     "title": "What I’m doing now",
@@ -21,9 +14,16 @@
     "text": "What I’m doing now"
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Felix MIL",
+    "section": "",
+    "text": "Github\n  \n  \n    \n     LinkedIn\n  \n  \n      Bluesky\n  \n\n  \n  \n👋 Hi, I’m Felix.\n👨‍💻 I’m a R developer working at ESQlabs to support the Open Systems Pharmacology initiative and enable a more open source and ethical pharmaceutical and other life-sciences applications.\n🔍 I’m interested in many topics, both in professional and personal life. Check out my now page to see what I’m currently focused on.\n📝 I occasionally share my thoughts and insights through blog posts on a variety of fascinating topics ranging from data science to personal interests."
+  },
+  {
     "objectID": "blog.html",
     "href": "blog.html",
-    "title": "blog",
+    "title": "Blog",
     "section": "",
     "text": "Post With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nMar 31, 2025\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nMar 28, 2025\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
   },
@@ -32,6 +32,6 @@
     "href": "blog/post-with-code/index.html",
     "title": "Post With Code",
     "section": "",
-    "text": "This is a post with executable code."
+    "text": "This is a post with executable code.\n\n# plot penguins\nlibrary(palmerpenguins)\nlibrary(ggplot2)\np &lt;- ggplot(penguins, \n       aes(x = flipper_length_mm, y = body_mass_g, color = species)) +\n  geom_point() +\n  labs(title = \"Penguin Body Mass vs. Flipper Length\",\n       x = \"Flipper Length (mm)\",\n       y = \"Body Mass (g)\",\n       color = \"Species\")\n\np"
   }
 ]
