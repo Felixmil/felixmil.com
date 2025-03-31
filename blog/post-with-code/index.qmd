@@ -7,3 +7,21 @@ image: "image.jpg"
 ---
 
 This is a post with executable code.
+
+
+```{r}
+#| warning: false
+# plot penguins
+library(palmerpenguins)
+library(ggplot2)
+p <- ggplot(penguins, 
+       aes(x = flipper_length_mm, y = body_mass_g, color = species)) +
+  geom_point() +
+  labs(title = "Penguin Body Mass vs. Flipper Length",
+       x = "Flipper Length (mm)",
+       y = "Body Mass (g)",
+       color = "Species")
+
+p
+```
+

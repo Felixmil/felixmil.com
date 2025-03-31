@@ -4,13 +4,15 @@ project:
 website:
   repo-url: "https://github.com/Felixmil/felixmil.com"
   site-url: "https://felixmil.com"
-  title: "felixmil.com"
+  title: "Felix MIL"
   navbar:
     right:
-      - text: Now
-        href: now.md
       - text: Blog
         href: blog.md
+      - text: Now
+        href: now.md
+      - text: About
+        href: about.md
 
 format:
   html:

@@ -1,5 +1,5 @@
 ---
-title: "blog"
+title: "Blog"
 listing:
   contents: blog
   sort: "date desc"
@@ -8,7 +8,6 @@ listing:
   sort-ui: false
   filter-ui: false
 page-layout: full
-title-block-banner: true
 ---
 
 
