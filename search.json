@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "blog/welcome/index.html",
+    "href": "blog/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -7,31 +14,24 @@
     "text": "About this site"
   },
   {
-    "objectID": "blog/posts/post-with-code/index.html",
-    "href": "blog/posts/post-with-code/index.html",
-    "title": "Post With Code",
+    "objectID": "now.html",
+    "href": "now.html",
+    "title": "What I’m doing now",
     "section": "",
-    "text": "This is a post with executable code."
+    "text": "What I’m doing now"
   },
   {
     "objectID": "blog.html",
     "href": "blog.html",
     "title": "blog",
     "section": "",
-    "text": "No matching items"
+    "text": "Post With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nMar 31, 2025\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nMar 28, 2025\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "blog/posts/welcome/index.html",
-    "href": "blog/posts/welcome/index.html",
-    "title": "Welcome To My Blog",
+    "objectID": "blog/post-with-code/index.html",
+    "href": "blog/post-with-code/index.html",
+    "title": "Post With Code",
     "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
-  },
-  {
-    "objectID": "now.html",
-    "href": "now.html",
-    "title": "What I’m doing now",
-    "section": "",
-    "text": "What I’m doing now"
+    "text": "This is a post with executable code."
   }
 ]
