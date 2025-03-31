@@ -3,7 +3,7 @@ project:
 
 website:
   repo-url: "https://github.com/Felixmil/felixmil.com"
-  site-url: "https://felixmil.github.io"
+  site-url: "https://felixmil.com"
   title: "felixmil.com"
   navbar:
     right:
