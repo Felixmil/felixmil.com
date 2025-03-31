@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>felixmil.com/about.html</loc>
+    <loc>https://felixmil.github.io/about.html</loc>
     <lastmod>2025-03-31T13:30:34.989Z</lastmod>
   </url>
   <url>
-    <loc>felixmil.com/blog/posts/post-with-code/index.html</loc>
+    <loc>https://felixmil.github.io/blog/posts/post-with-code/index.html</loc>
     <lastmod>2025-03-31T13:36:02.531Z</lastmod>
   </url>
   <url>
-    <loc>felixmil.com/blog.html</loc>
+    <loc>https://felixmil.github.io/blog.html</loc>
     <lastmod>2025-03-31T13:47:13.106Z</lastmod>
   </url>
   <url>
-    <loc>felixmil.com/blog/posts/welcome/index.html</loc>
+    <loc>https://felixmil.github.io/blog/posts/welcome/index.html</loc>
     <lastmod>2025-03-31T13:36:02.530Z</lastmod>
   </url>
   <url>
-    <loc>felixmil.com/now.html</loc>
+    <loc>https://felixmil.github.io/now.html</loc>
     <lastmod>2025-03-31T13:46:24.713Z</lastmod>
   </url>
 </urlset>
