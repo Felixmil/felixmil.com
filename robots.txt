@@ -1,1 +1,1 @@
-Sitemap: https://Felixmil.github.io/felixmil.github.io/sitemap.xml
+Sitemap: felixmil.com/sitemap.xml
