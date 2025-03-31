@@ -2,6 +2,8 @@ project:
   type: website
 
 website:
+  repo-url: "https://github.com/Felixmil/felixmil.com"
+  site-url: "https://felixmil.github.io"
   title: "felixmil.com"
   navbar:
     right:
@@ -14,6 +16,9 @@ format:
   html:
     theme: litera
     css: styles.css
+    
+execute:
+  freeze: auto
 
 
 
