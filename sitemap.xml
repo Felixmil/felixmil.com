@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://felixmil.com/about.html</loc>
-    <lastmod>2025-04-01T07:24:35.739Z</lastmod>
-  </url>
-  <url>
-    <loc>https://felixmil.com/now.html</loc>
-    <lastmod>2025-04-01T07:24:35.739Z</lastmod>
-  </url>
-  <url>
     <loc>https://felixmil.com/index.html</loc>
-    <lastmod>2025-04-01T07:24:35.739Z</lastmod>
+    <lastmod>2025-11-21T22:01:44.724Z</lastmod>
   </url>
   <url>
     <loc>https://felixmil.com/blog.html</loc>
-    <lastmod>2025-04-01T07:24:35.739Z</lastmod>
+    <lastmod>2025-11-21T22:01:44.724Z</lastmod>
+  </url>
+  <url>
+    <loc>https://felixmil.com/about.html</loc>
+    <lastmod>2025-11-21T22:01:44.724Z</lastmod>
+  </url>
+  <url>
+    <loc>https://felixmil.com/now.html</loc>
+    <lastmod>2025-11-21T22:01:44.724Z</lastmod>
+  </url>
+  <url>
+    <loc>https://felixmil.com/blog/japan.html</loc>
+    <lastmod>2025-11-21T22:01:44.724Z</lastmod>
   </url>
 </urlset>

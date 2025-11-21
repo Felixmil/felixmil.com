@@ -1,23 +1,37 @@
 [
   {
-    "objectID": "now.html",
-    "href": "now.html",
-    "title": "What I’m doing now",
-    "section": "",
-    "text": "What I’m doing now\n\n🇯🇵 Learning Japanese.\n🗾 Planning a trip to Japan.\n🪓 Playing Valheim.\n✅ Designing a great task management system for Apple reminder.\n🧠 Incorporating AI coding agent into my daily work using Cursor.\n🃏 Competing in Flesh and Blood tournaments.\n\n\n\nWhat I did before\n\n🌐 Setting up this website using Quarto and GitHub Pages."
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Felix MIL",
     "section": "",
-    "text": "Github\n  \n  \n    \n     LinkedIn\n  \n  \n      Bluesky\n  \n\n  \n  \n👋 Hi, I’m Felix.\n👨‍💻 I’m a R developer working at ESQlabs to support the Open Systems Pharmacology initiative and enable a more open source and ethical pharmaceutical and other life-sciences applications.\n🔍 I’m interested in many topics, both in professional and personal life. Check out my now page to see what I’m currently focused on.\n📝 I occasionally share my thoughts and insights through blog posts on a variety of fascinating topics ranging from data science to personal interests."
+    "text": "Github\n  \n  \n    \n     LinkedIn\n  \n  \n      Bluesky\n  \n\n  \n  \n👋 Hi, I’m Felix.\n👨‍💻 I’m a R developer working at ESQlabs to support the Open Systems Pharmacology initiative and enable a more open source and ethical pharmaceutical and other life-sciences applications.\n🔍 I’m interested in many topics, both in professional and personal life. Check out my now page to see what I’m currently focused on.\n📝 I occasionally share my thoughts and insights through blog posts on a variety of topics."
   },
   {
     "objectID": "blog.html",
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "No matching items"
+    "text": "Japan 2025\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "now.html",
+    "href": "now.html",
+    "title": "What I’m doing now",
+    "section": "",
+    "text": "🇯🇵 Learning Japanese.\n🗾 Planning a trip to Japan.\n🪓 Playing Valheim.\n✅ Designing a great task management system for Apple reminder.\n🧠 Incorporating AI coding agent into my daily work using Cursor.\n🃏 Competing in Flesh and Blood tournaments."
+  },
+  {
+    "objectID": "now.html#section",
+    "href": "now.html#section",
+    "title": "What I’m doing now",
+    "section": "2025",
+    "text": "2025\n\n3 weeks trip to Japan.\n🌐 Setting up this website using Quarto and GitHub Pages."
+  },
+  {
+    "objectID": "blog/japan.html",
+    "href": "blog/japan.html",
+    "title": "Japan 2025",
+    "section": "",
+    "text": "A selection of pictures I took with my Fujifilm XT30II + 27mm f/2.8 lens during my trip to japan from May 24th to June 15th 2025."
   }
 ]
