@@ -20,7 +20,9 @@ website:
 format:
   html:
     theme: [brand]
-    css: styles.css
+    anchor-sections: true
+    number-sections: false
+    link-external-newwindow: true
 
 execute:
   freeze: auto
