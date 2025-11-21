@@ -10,4 +10,8 @@
 
 
 # What I did before
+
+## 2025
+
+- [3 weeks trip to Japan](blog/japan.md).
 - 🌐 Setting up this website using [Quarto](https://quarto.org/) and [GitHub Pages](https://pages.github.com/).

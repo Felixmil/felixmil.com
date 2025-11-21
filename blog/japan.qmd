@@ -1,0 +1,77 @@
+---
+title: Japan 2025
+lightbox: true
+---
+
+```{=html}
+<style>
+.column-body-outset img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+}
+</style>
+```
+
+A selection of pictures I took with my Fujifilm XT30II + 27mm f/2.8 lens during my trip to japan from May 24th to June 15th 2025.
+
+::: {.column-body-outset}
+
+::: {layout-ncol=2}
+
+![](/resources/images/japan2025/japan1.JPEG){group="my-gallery"}
+
+![](/resources/images/japan2025/japan2.JPEG){group="my-gallery"}
+
+![](/resources/images/japan2025/japan3.JPEG){group="my-gallery"}
+
+![](/resources/images/japan2025/japan4.JPEG){group="my-gallery"}
+
+![](/resources/images/japan2025/japan5.JPEG){group="my-gallery"}
+
+![](/resources/images/japan2025/japan6.JPEG){group="my-gallery"}
+
+![](/resources/images/japan2025/japan7.JPEG){group="my-gallery"}
+
+![](/resources/images/japan2025/japan8.JPEG){group="my-gallery"}
+
+![](/resources/images/japan2025/japan9.JPEG){group="my-gallery"}
+
+![](/resources/images/japan2025/japan10.JPEG){group="my-gallery"}
+
+![](/resources/images/japan2025/japan11.JPEG){group="my-gallery"}
+
+![](/resources/images/japan2025/japan12.JPEG){group="my-gallery"}
+
+![](/resources/images/japan2025/japan13.JPEG){group="my-gallery"}
+
+![](/resources/images/japan2025/japan14.JPEG){group="my-gallery"}
+
+![](/resources/images/japan2025/japan15.JPEG){group="my-gallery"}
+
+![](/resources/images/japan2025/japan16.JPEG){group="my-gallery"}
+
+![](/resources/images/japan2025/japan17.JPEG){group="my-gallery"}
+
+![](/resources/images/japan2025/japan18.JPEG){group="my-gallery"}
+
+![](/resources/images/japan2025/japan19.JPEG){group="my-gallery"}
+
+![](/resources/images/japan2025/japan20.JPEG){group="my-gallery"}
+
+![](/resources/images/japan2025/japan21.JPEG){group="my-gallery"}
+
+![](/resources/images/japan2025/japan22.JPEG){group="my-gallery"}
+
+![](/resources/images/japan2025/japan23.JPEG){group="my-gallery"}
+
+![](/resources/images/japan2025/japan24.JPEG){group="my-gallery"}
+
+![](/resources/images/japan2025/japan25.JPEG){group="my-gallery"}
+
+![](/resources/images/japan2025/japan26.JPEG){group="my-gallery"}
+
+:::
+
+:::
