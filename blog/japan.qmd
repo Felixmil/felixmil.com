@@ -1,5 +1,11 @@
 ---
 title: Japan 2025
+description: A selection of pictures from Japan.
+date: 2025-06-30
+categories:
+    - travel
+    - japan
+    - photography
 lightbox: true
 ---
 
@@ -14,7 +20,7 @@ lightbox: true
 </style>
 ```
 
-A selection of pictures I took with my Fujifilm XT30II + 27mm f/2.8 lens during my trip to japan from May 24th to June 15th 2025.
+I took these pictures with my Fujifilm XT30II + 27mm f/2.8 lens during between May 24th and June 15th 2025.
 
 ::: {.column-body-outset}
 
