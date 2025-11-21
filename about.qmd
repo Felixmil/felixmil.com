@@ -1,0 +1,78 @@
+---
+title: "Felix MIL"
+about:
+  template: jolla
+  #image: profile.jpg
+  image-shape: "rounded"
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/felixmil
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/felix-mil/
+    - text: "{{< iconify fa6-brands bluesky >}} Bluesky"
+      href: https://bsky.app/profile/felixmil.com
+---
+
+```{=html}
+<style>
+.panel-tabset .tab-content {
+  padding: 2rem;
+  text-align: left;
+}
+
+.panel-tabset h3 {
+  color: #000;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #000;
+  text-align: left;
+}
+
+.panel-tabset h4 {
+  color: #000;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  text-align: left;
+}
+
+.panel-tabset p {
+  line-height: 1.7;
+  color: #000;
+  text-align: left;
+}
+
+</style>
+```
+
+::: {.panel-tabset}
+
+## 🇬🇧 English
+
+```{r, echo=FALSE, results='asis'}
+content <- readLines(
+  "https://raw.githubusercontent.com/Felixmil/felixmil/refs/heads/master/resume-en.md"
+)
+# Skip the first line (title) and increase heading levels
+content <- content[-1]
+content <- gsub("^##", "###", content)
+cat(content, sep = "\n")
+```
+
+## 🇫🇷 Français
+
+```{r, echo=FALSE, results='asis'}
+content <- readLines(
+  "https://raw.githubusercontent.com/Felixmil/felixmil/refs/heads/master/resume-fr.md"
+)
+# Skip the first line (title) and increase heading levels
+content <- content[-1]
+content <- gsub("^##", "###", content)
+cat(content, sep = "\n")
+```
+
+:::

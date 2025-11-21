@@ -15,7 +15,7 @@ website:
       - text: Now
         href: now.md
       - text: About
-        href: about.md
+        href: about.qmd
 
 format:
   html:
