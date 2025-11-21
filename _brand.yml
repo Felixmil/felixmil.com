@@ -68,11 +68,8 @@ defaults:
         padding-bottom: 0.5rem;
         margin-bottom: 1.5rem;
         margin-top: 2.5rem;
-        border-bottom: none;
-      }
+        border-bottom: 1px solid $brand-light-gray;
 
-      h3, h4, h5, h6 {
-        border-bottom: none;
       }
 
       a:hover {

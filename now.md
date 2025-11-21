@@ -1,10 +1,14 @@
-# What I'm doing now
+---
+title: Now
+---
+
+## What I'm doing now
 - 👶 Getting prepared for a new member in the family,
 - 📦 Setting up `{renv}` to harmonize development environment among fellow developers,
 - 📱 Designing great automations on iOS,
 - 🃏 Competing in [Flesh and Blood](https://fabtcg.com/) tournaments.
 
-# What I did before
+## What I did before
 
 <!-- ## To Write 
 - 🪓 Playing [Valheim](https://www.valheim.com/). 
@@ -12,7 +16,7 @@
 - ✅ Designing [a great task management system](./blog/reminders.md) for Apple reminder. 
 -->
 
-## 2025
+### 2025
 
 - 🔐 [Set up single sign-on for a Quarto/GitHub website on cloud infrastructure.](./blog/quarto-github-sso.md)
 - 🗾 [3 weeks trip to Japan](./blog/japan.qmd).
