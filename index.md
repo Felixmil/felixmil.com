@@ -23,5 +23,5 @@ about:
 
 🔍 I'm interested in many topics, both in professional and personal life. Check out my [now page](/now.md) to see what I'm currently focused on.
 
-📝 I occasionally share my thoughts and insights through [blog posts](/blog.md) on a variety of fascinating topics ranging from data science to personal interests.
+📝 I occasionally share my thoughts and insights through [blog posts](/blog.md) on a variety of topics.
 :::
