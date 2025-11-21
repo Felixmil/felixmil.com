@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/blog/quarto-github-sso.html",
       "/blog/japan.html"
     ]
   }
