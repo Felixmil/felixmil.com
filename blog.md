@@ -8,7 +8,7 @@ listing:
   sort-ui: false
   filter-ui: false
   image-height: 250px
+  exclude:
+    draft: true
 page-layout: full
 ---
-
-
