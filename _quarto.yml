@@ -1,5 +1,8 @@
 project:
   type: website
+  preview:
+    port: 4200
+    browser: false
 
 website:
   repo-url: "https://github.com/Felixmil/felixmil.com"
@@ -18,9 +21,6 @@ format:
   html:
     theme: [brand]
     css: styles.css
-    
+
 execute:
   freeze: auto
-
-
-
